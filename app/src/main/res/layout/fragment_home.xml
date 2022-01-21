@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/home_logo_iv"
+        android:layout_width="265px"
+        android:layout_height="198px"
+        android:src="@drawable/logo_main_02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="1px"
+        android:layout_marginTop="56px"
+        />
+
+    <ImageView
+        android:id="@+id/home_korean_iv"
+        android:layout_width="54px"
+        android:layout_height="41px"
+        android:src="@drawable/home_koreanfood"
+        android:layout_marginTop="76px"
+        android:layout_marginRight="6px"
+        app:layout_constraintEnd_toStartOf="@id/home_logo_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_logo_iv"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="한식"
+        android:textSize="18px"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:layout_marginTop="12px"
+        app:layout_constraintStart_toStartOf="@id/home_korean_iv"
+        app:layout_constraintEnd_toEndOf="@id/home_korean_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_korean_iv"
+        />
+
+    <ImageView
+        android:id="@+id/home_western_iv"
+        android:layout_width="75px"
+        android:layout_height="57px"
+        android:src="@drawable/home_westernfood"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="63px"
+        app:layout_constraintStart_toEndOf="@id/home_korean_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_logo_iv"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="양식"
+        android:textSize="18px"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:layout_marginTop="9px"
+        app:layout_constraintStart_toStartOf="@id/home_western_iv"
+        app:layout_constraintEnd_toEndOf="@id/home_western_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_western_iv"
+        />
+
+    <ImageView
+        android:id="@+id/home_japanese_iv"
+        android:layout_width="78px"
+        android:layout_height="58px"
+        android:src="@drawable/home_japanesefood"
+        android:layout_marginStart="13px"
+        android:layout_marginTop="60px"
+        app:layout_constraintStart_toEndOf="@id/home_western_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_logo_iv"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일식"
+        android:textSize="18px"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:layout_marginTop="11px"
+        app:layout_constraintStart_toStartOf="@id/home_japanese_iv"
+        app:layout_constraintEnd_toEndOf="@id/home_japanese_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_japanese_iv"
+        />
+
+    <ImageView
+        android:id="@+id/home_chinese_iv"
+        android:layout_width="69px"
+        android:layout_height="53px"
+        android:src="@drawable/home_chinesefood"
+        android:layout_marginTop="64px"
+        android:layout_marginStart="44px"
+        app:layout_constraintStart_toEndOf="@id/home_japanese_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_logo_iv"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="중식"
+        android:textSize="18px"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:layout_marginTop="12px"
+        app:layout_constraintStart_toStartOf="@id/home_chinese_iv"
+        app:layout_constraintEnd_toEndOf="@id/home_chinese_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_chinese_iv"
+        />
+
+    <ImageView
+        android:id="@+id/home_school_iv"
+        android:layout_width="83px"
+        android:layout_height="62px"
+        android:src="@drawable/home_schoolfood"
+        android:layout_marginTop="174px"
+        android:layout_marginRight="7px"
+        app:layout_constraintStart_toStartOf="@id/home_korean_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_logo_iv"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="분식"
+        android:textSize="18px"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:layout_marginTop="13px"
+        app:layout_constraintStart_toStartOf="@id/home_school_iv"
+        app:layout_constraintEnd_toEndOf="@id/home_school_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_school_iv"
+        />
+
+    <ImageView
+        android:id="@+id/home_bar_iv"
+        android:layout_width="68px"
+        android:layout_height="51px"
+        android:src="@drawable/home_bar"
+        android:layout_marginTop="185px"
+        android:layout_marginStart="25px"
+        app:layout_constraintStart_toEndOf="@id/home_school_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_logo_iv"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="술집"
+        android:textSize="18px"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:layout_marginTop="13px"
+        app:layout_constraintStart_toStartOf="@id/home_bar_iv"
+        app:layout_constraintEnd_toEndOf="@id/home_bar_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_bar_iv"
+        />
+    
+    <ImageView
+        android:id="@+id/home_dessert_iv"
+        android:layout_width="73px"
+        android:layout_height="55px"
+        android:src="@drawable/home_dessert"
+        android:layout_marginTop="181px"
+        android:layout_marginStart="26px"
+        app:layout_constraintStart_toEndOf="@id/home_bar_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_logo_iv"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="디저트"
+        android:textSize="18px"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:layout_marginTop="13px"
+        app:layout_constraintStart_toStartOf="@id/home_dessert_iv"
+        app:layout_constraintEnd_toEndOf="@id/home_dessert_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_dessert_iv"
+        />
+
+    <ImageView
+        android:id="@+id/home_all_iv"
+        android:layout_width="84px"
+        android:layout_height="64px"
+        android:src="@drawable/home_all"
+        android:layout_marginTop="173px"
+        android:layout_marginStart="32px"
+        app:layout_constraintStart_toEndOf="@id/home_dessert_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_logo_iv"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="전체보기"
+        android:textSize="18px"
+        android:textStyle="normal"
+        android:textColor="@color/black"
+        android:layout_marginTop="13px"
+        app:layout_constraintStart_toStartOf="@id/home_all_iv"
+        app:layout_constraintEnd_toEndOf="@id/home_all_iv"
+        app:layout_constraintTop_toBottomOf="@id/home_all_iv"
+        />
+
+    <TextView
+        android:id="@+id/main_recent_review_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="최근 리뷰"
+        android:textSize="13px"
+        android:textStyle="normal"
+        android:textColor="@color/mechelin_gray"
+        android:layout_marginTop="344px"
+        app:layout_constraintTop_toBottomOf="@id/home_logo_iv"
+        app:layout_constraintStart_toStartOf="@id/home_korean_iv"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/home_recent_review_recyclerview"
+        android:layout_width="500px"
+        android:layout_height="164px"
+        android:layout_marginTop="12px"
+        tools:listitem="@layout/item_recent_review"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@id/main_recent_review_tv"
+        app:layout_constraintTop_toBottomOf="@id/main_recent_review_tv"
+        />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
