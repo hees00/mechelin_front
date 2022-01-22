@@ -5,11 +5,10 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="407px"
-        android:layout_height="307px"
-        android:layout_marginStart="3.5px"
-        android:layout_marginTop="157px"
-        android:src="@drawable/logo_main_01"
+        android:layout_width="280px"
+        android:layout_height="210px"
+        android:layout_marginTop="186px"
+        android:src="@drawable/logo_red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -17,10 +16,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="520px"
+        android:layout_marginTop="435px"
         android:text="나만의 맛집 일기"
         android:textColor="@color/mechelin_splash_color"
-        android:textSize="20px"
+        android:textSize="18px"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
