@@ -22,6 +22,7 @@ class HomeFragment: Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+
         //데이터 리스트 생성
         reviewDatas.apply {
             add(Review("도우룸", R.drawable.starscore_4_3, "4.5/5", "ddd"))

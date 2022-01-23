@@ -10,6 +10,6 @@
 
     <color name="main_color">#e54b4b</color>
     <color name="mechelin_gray">#6A6A6A</color>
-    <color name="mechelin_splash_color">#DA3C3B</color>
+    <color name="mechelin_splash_color">#E54B4B</color>
     <color name="mechelin_review_grey">#F0F0F0</color>
 </resources>
