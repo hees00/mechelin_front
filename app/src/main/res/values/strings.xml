@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">ME슐랭</string>
 
+    <!-- category-->
+    <string name="한식">한식</string>
+    <string name="중식">중식</string>
+    <string name="일식">일식</string>
+    <string name="양식">양식</string>
+    <string name="분식">분식</string>
+    <string name="디저트">디저트</string>
+    <string name="술집">술집</string>
+
+
+
 </resources>

@@ -19,6 +19,14 @@ class WritingFragment: Fragment() {
     ): View? {
         binding = FragmentWritingBinding.inflate(inflater, container, false)
 
+        binding.writingCategorySelectTb.setOnClickListener {
+            if (binding.writingCategorySelectTb.isChecked) {
+                binding.writingCategoryLayout.visibility = View.VISIBLE
+            } else {
+                binding.writingCategoryLayout.visibility = View.GONE
+            }
+        }
         return binding.root
+
     }
 }

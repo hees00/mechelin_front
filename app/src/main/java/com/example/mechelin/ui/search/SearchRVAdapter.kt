@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mechelin.data.SearchStore
-import com.example.mechelin.databinding.ActivitySaveRestaurantBinding
 import com.example.mechelin.databinding.ItemSearchResultBinding
 
 class SearchRVAdapter(private val StoreList: ArrayList<SearchStore>) : RecyclerView.Adapter<SearchRVAdapter.ViewHolder>() {

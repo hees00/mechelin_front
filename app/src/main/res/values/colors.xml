@@ -12,4 +12,8 @@
     <color name="mechelin_gray">#6A6A6A</color>
     <color name="mechelin_splash_color">#DA3C3B</color>
     <color name="mechelin_review_grey">#F0F0F0</color>
+    <color name="mechelin_gray_background">#fcfafa</color>
+    <color name="mechelin_gray_font">#26958383</color>
+    <color name="mechelin_gray_font2">#766c6c</color>
+
 </resources>
