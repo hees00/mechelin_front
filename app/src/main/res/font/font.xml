@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <font
+        android:font="@font/scdream1"
+        android:fontStyle="normal"
+        app:font="@font/scdream1"
+        app:fontStyle="normal"
+        />
+
+    <font
+        android:font="@font/scdream2"
+        android:fontStyle="normal"
+        app:font="@font/scdream2"
+        app:fontStyle="normal"/>
+
+    <font
+        android:font="@font/scdream3"
+        android:fontStyle="normal"
+        app:font="@font/scdream3"
+        app:fontStyle="normal"/>
+
+    <font
+        android:font="@font/scdream4"
+        android:fontStyle="normal"
+        app:font="@font/scdream4"
+        app:fontStyle="normal"/>
+
+    <font
+        android:font="@font/scdream5"
+        android:fontStyle="normal"
+        app:font="@font/scdream5"
+        app:fontStyle="normal"/>
+
+    <font
+        android:font="@font/scdream6"
+        android:fontStyle="normal"
+        app:font="@font/scdream6"
+        app:fontStyle="normal"/>
+
+    <font
+        android:font="@font/scdream7"
+        android:fontStyle="normal"
+        app:font="@font/scdream7"
+        app:fontStyle="normal"/>
+
+    <font
+        android:font="@font/scdream8"
+        android:fontStyle="normal"
+        app:font="@font/scdream8"
+        app:fontStyle="normal"/>
+
+    <font
+        android:font="@font/scdream9"
+        android:fontStyle="normal"
+        app:font="@font/scdream9"
+        app:fontStyle="normal"/>
+
+</font-family>

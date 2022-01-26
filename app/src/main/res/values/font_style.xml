@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="customTextViewFontStyle" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/scdream4</item>
+    </style>
+
+    <style name="customButtonFontStyle" parent="@style/Widget.AppCompat.Button">
+        <item name="android:fontFamily">@font/scdream4</item>
+    </style>
+
+
+</resources>
