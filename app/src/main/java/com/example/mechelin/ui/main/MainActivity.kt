@@ -3,6 +3,7 @@ package com.example.mechelin.ui.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mechelin.R
+import com.example.mechelin.data.SearchStore
 import com.example.mechelin.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

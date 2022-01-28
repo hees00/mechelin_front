@@ -1,10 +1,12 @@
 package com.example.mechelin.ui.save
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechelin.R
 import com.example.mechelin.data.SearchStore
@@ -12,6 +14,8 @@ import com.example.mechelin.data.remote.KakaoapiInterface
 import com.example.mechelin.data.remote.Place
 import com.example.mechelin.data.remote.Researchkeyword
 import com.example.mechelin.databinding.ActivitySearchPlaceBinding
+import com.example.mechelin.ui.main.MainActivity
+import com.example.mechelin.ui.main.WritingFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,9 +45,7 @@ class SearchPlaceActivity : AppCompatActivity(){
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-
                 // 검색창에서 글자가 변경이 일어날 때마다 호출
-
                 return true
             }
         })
@@ -52,7 +54,7 @@ class SearchPlaceActivity : AppCompatActivity(){
 
     companion object {
         const val BASE_URL = "https://dapi.kakao.com/"
-        const val API_KEY = "KakaoAK ***************"  // REST API 키
+        const val API_KEY = "KakaoAK **********"  // REST API 키
     }
 
     private fun searchKeyword(keyword: String) {
@@ -87,16 +89,28 @@ class SearchPlaceActivity : AppCompatActivity(){
     fun showResult(result: Researchkeyword?){
         for(i in result!!.documents)
             StoreDatas.apply{
-                add(SearchStore(i.place_name,i.address_name))
+                add(SearchStore(i.place_name,i.address_name,i.phone,i.x,i.y))
             }
         Log.d("Test", "Body: ${result}")
 
         //어댑터 설정
-        val searchRVAdapter = SearchRVAdapter(StoreDatas)
+        val searchRVAdapter = SearchRVAdapter(StoreDatas,itemClickedListener={
+            getselectedStore(WritingFragment(),it)
+        })
         //리사이클러 뷰에 연결
         binding.searchResultRv.adapter= searchRVAdapter
         //레이아웃 매니저 설정 (아이템 배치 어떻게?)
         binding.searchResultRv.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+    }
+
+
+    private fun getselectedStore(fragment: Fragment,store: SearchStore){
+        val bundle = Bundle()
+        bundle.putParcelable("store",store)
+        fragment.arguments = bundle
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.main_frm,fragment)
+        transaction.commit()
     }
 
 }
