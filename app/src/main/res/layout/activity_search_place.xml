@@ -34,7 +34,6 @@
         android:layout_marginTop="20dp"
         tools:listitem="@layout/item_search_result"
         app:layout_constraintStart_toStartOf="@id/searchview"
-
         />
 
 

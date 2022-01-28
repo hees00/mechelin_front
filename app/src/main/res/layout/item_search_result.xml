@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:text="식당 이름"
         android:textSize="15dp"
+        android:fontFamily="@font/scdream4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="20dp"
@@ -23,6 +24,7 @@
         android:layout_height="wrap_content"
         android:text="서울시 땡땡구 땡땡로 203-39"
         android:textSize="12dp"
+        android:fontFamily="@font/scdream4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/item_search_item_storename_tv"
         android:layout_marginTop="5dp"
@@ -37,4 +39,32 @@
         android:background="@color/black"
         android:layout_marginTop="20dp"/>
 
+    <TextView
+        android:id="@+id/item_search_phone_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:fontFamily="@font/scdream4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_search_item_storeaddress_tv"
+        android:text="phone"/>
+
+    <TextView
+        android:id="@+id/item_search_x_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:fontFamily="@font/scdream4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_search_item_storeaddress_tv"
+        android:text="위도"/>
+
+    <TextView
+        android:id="@+id/item_search_y_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_search_item_storeaddress_tv"
+        android:text="경도"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

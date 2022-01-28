@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.mechelin.data.SearchStore
+import com.example.mechelin.data.remote.Store
 import com.example.mechelin.databinding.FragmentHomeBinding
 import com.example.mechelin.databinding.FragmentWritingBinding
 import com.example.mechelin.ui.save.SearchPlaceActivity
@@ -14,6 +16,7 @@ import com.example.mechelin.ui.save.SearchPlaceActivity
 class WritingFragment: Fragment() {
 
     lateinit var binding: FragmentWritingBinding
+    lateinit var store:Store
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,6 +33,11 @@ class WritingFragment: Fragment() {
             }
         }
 
+        if(arguments != null){
+            Log.d("resultstore",arguments?.getParcelable<SearchStore>("store").toString())
+        }
+
+
         binding.writingSearchView.setOnClickListener {
             val intent = Intent(getActivity(), SearchPlaceActivity::class.java)
             startActivity(intent)
@@ -39,6 +47,8 @@ class WritingFragment: Fragment() {
         return binding.root
 
     }
+
+
 
 
 //    fun makeTag() {
