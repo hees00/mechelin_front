@@ -1,8 +1,12 @@
 package com.example.mechelin.ui.main
 
+import com.google.gson.annotations.SerializedName
+
 data class Review(
-    var title: String? = "",
-    var starscore: Int? = null,
-    var starscoreinfo: String? = "",
-    var detail: String? = ""
+    @SerializedName("userIdx") val userIdx: Int = 0,
+    @SerializedName("storeIdx") val storeIdx: Int = 0,
+    @SerializedName("storeName") val storeName: String = "",
+    @SerializedName("starRate") val starRate: Double = 0.0,
+    @SerializedName("contents") val contents: String = "",
+    @SerializedName("createdAt") val createdAt: String = ""
 )

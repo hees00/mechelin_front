@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14722222222222223" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/drawable/category_item_toggle_selector.xml" value="0.14722222222222223" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14722222222222223" />
@@ -14,6 +15,17 @@
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/fragment_writing.xml" value="0.22" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/item_search_result.xml" value="0.3333333333333333" />
+        <entry key="app/src/main/res/drawable/main_btm_color_selector.xml" value="0.18125" />
+        <entry key="app/src/main/res/drawable/main_btm_home_selector.xml" value="0.18125" />
+        <entry key="app/src/main/res/drawable/main_btm_list_selector.xml" value="0.18125" />
+        <entry key="app/src/main/res/drawable/main_btm_map_selector.xml" value="0.18125" />
+        <entry key="app/src/main/res/drawable/main_btm_writing_selector.xml" value="0.18125" />
+        <entry key="app/src/main/res/drawable/recent_review_background.xml" value="0.14907407407407408" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.26426978116932764" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.75" />
+        <entry key="app/src/main/res/layout/item_recent_review.xml" value="1.0" />
+        <entry key="app/src/main/res/layout/item_search_result.xml" value="0.28351449275362317" />
+        <entry key="app/src/main/res/menu/main_bnv_menu.xml" value="2.5" />
       </map>
     </option>
   </component>
