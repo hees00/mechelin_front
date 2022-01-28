@@ -1,10 +1,15 @@
 package com.example.mechelin.ui.save
 
+import android.app.PendingIntent.getActivity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mechelin.R
 import com.example.mechelin.data.SearchStore
 import com.example.mechelin.databinding.ItemSearchResultBinding
+import com.example.mechelin.ui.main.WritingFragment
 
 class SearchRVAdapter(private val StoreList: ArrayList<SearchStore>) : RecyclerView.Adapter<SearchRVAdapter.ViewHolder>() {
     //뷰홀더를 생성해줘야 할 때 생성되는 함수
@@ -25,7 +30,10 @@ class SearchRVAdapter(private val StoreList: ArrayList<SearchStore>) : RecyclerV
         fun bind(store: SearchStore){
             binding.itemSearchItemStorenameTv.text=store.storename
             binding.itemSearchItemStoreaddressTv.text=store.storeaddress
+
         }
+
+
 
     }
 

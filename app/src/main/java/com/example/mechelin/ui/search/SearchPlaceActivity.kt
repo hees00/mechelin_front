@@ -52,7 +52,7 @@ class SearchPlaceActivity : AppCompatActivity(){
 
     companion object {
         const val BASE_URL = "https://dapi.kakao.com/"
-        const val API_KEY = "KakaoAK ***************"  // REST API 키
+        const val API_KEY = "KakaoAK b897e9989fedf2db699cf5b819537e64"  // REST API 키
     }
 
     private fun searchKeyword(keyword: String) {
