@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="완료"
+        android:textSize="10sp"
+        android:textColor="#766c6c"
+        android:fontFamily="@font/scdream4"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintEnd_toEndOf="@id/search_bar_v"
+        app:layout_constraintBottom_toTopOf="@id/search_bar_v"
+        />
+
+
+    <View
+        android:id="@+id/search_bar_v"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="@drawable/searchbar_background"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/search_searching_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="검색"
+        android:textSize="10sp"
+        android:textColor="#766c6c"
+        android:background="@null"
+        android:fontFamily="@font/scdream4"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="@id/search_bar_v"
+        app:layout_constraintTop_toTopOf="@id/search_bar_v"
+        app:layout_constraintBottom_toBottomOf="@id/search_bar_v"
+        />
+
+    <ImageView
+        android:id="@+id/search_magnifier_black_iv"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/search_gray"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="@id/search_bar_v"
+        app:layout_constraintTop_toTopOf="@id/search_bar_v"
+        app:layout_constraintBottom_toBottomOf="@id/search_bar_v"
+        />
+
+    <ImageView
+        android:id="@+id/search_magnifier_red_iv"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/search_red"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="@id/search_bar_v"
+        app:layout_constraintTop_toTopOf="@id/search_bar_v"
+        app:layout_constraintBottom_toBottomOf="@id/search_bar_v"
+        android:visibility="gone"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_searching"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_bar_v"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

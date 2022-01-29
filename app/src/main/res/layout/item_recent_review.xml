@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="224px"
-    android:layout_height="164px"
+    android:layout_width="200dp"
+    android:layout_height="130dp"
     android:background="@drawable/recent_review_background"
-    android:layout_marginLeft="13px"
+    android:layout_marginLeft="16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:id="@+id/item_review_res_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14px"
+        android:layout_marginStart="14sp"
         android:layout_marginTop="20px"
         android:text="도우룸 "
         android:textColor="#7E7373"
-        android:textSize="16px"
+        android:textSize="14sp"
         android:textStyle="bold"
-        android:fontFamily="@font/scdream3"
+        android:fontFamily="@font/scdream5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/item_review_score_iv"
-        android:layout_width="48px"
-        android:layout_height="36px"
+        android:layout_width="44dp"
+        android:layout_height="33dp"
         android:src="@drawable/detail_page_average_rating_4"
-        android:layout_marginTop="13px"
         app:layout_constraintStart_toEndOf="@id/item_review_res_title_tv"
         app:layout_constraintTop_toTopOf="parent"
         />
@@ -33,30 +32,30 @@
 
     <TextView
         android:id="@+id/item_review_detail_tv"
-        android:layout_width="200px"
+        android:layout_width="182dp"
         android:layout_height="wrap_content"
         android:text="분위기도 좋고 직원분들도 친절하셨다.\n가성비도 좋음.\n랍스터 라비울리가 제일 맛있었고,
 와규 안심\n스테이크도 맛있었다.\n스테이크는 적당히 불리지 않을 양이 나와 좋\n았다. 감자 뇨끼는 느끼해서 비추"
-        android:textSize="10px"
+        android:textSize="9sp"
         android:textColor="#E67E7373"
         android:textStyle="normal"
         android:fontFamily="@font/scdream3"
-        android:layout_marginTop="60px"
+        android:layout_marginTop="38dp"
         app:layout_constraintStart_toStartOf="@id/item_review_res_title_tv"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <TextView
         android:id="@+id/item_review_date_tv"
-        android:layout_width="200px"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:text="2022.1.18"
         android:textColor="#7E7373"
         android:textStyle="normal"
-        android:textSize="9px"
-        android:fontFamily="@font/scdream3"
-        android:layout_marginTop="143px"
-        android:layout_marginStart="170px"
+        android:textSize="8sp"
+        android:fontFamily="@font/scdream4"
+        android:layout_marginTop="111dp"
+        android:layout_marginStart="151dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
