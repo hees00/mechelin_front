@@ -26,6 +26,7 @@
             android:exported="true">
         </activity>
         <activity android:name=".ui.save.SearchPlaceActivity"/>
+        <activity android:name=".ui.main.WritingActivity"/>
     </application>
 
 </manifest>

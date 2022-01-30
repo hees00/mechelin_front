@@ -14,8 +14,9 @@ import com.example.mechelin.data.remote.KakaoapiInterface
 import com.example.mechelin.data.remote.Place
 import com.example.mechelin.data.remote.Researchkeyword
 import com.example.mechelin.databinding.ActivitySearchPlaceBinding
+import com.example.mechelin.ui.main.HomeFragment
 import com.example.mechelin.ui.main.MainActivity
-import com.example.mechelin.ui.main.WritingFragment
+import com.example.mechelin.ui.main.WritingActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -95,7 +96,7 @@ class SearchPlaceActivity : AppCompatActivity(){
 
         //어댑터 설정
         val searchRVAdapter = SearchRVAdapter(StoreDatas,itemClickedListener={
-            getselectedStore(WritingFragment(),it)
+            getselectedStore(HomeFragment(),it)
         })
         //리사이클러 뷰에 연결
         binding.searchResultRv.adapter= searchRVAdapter

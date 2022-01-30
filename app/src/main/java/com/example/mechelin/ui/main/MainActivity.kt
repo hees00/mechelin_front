@@ -1,5 +1,6 @@
 package com.example.mechelin.ui.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mechelin.R
@@ -31,10 +32,12 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.writingFragment -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, WritingFragment())
-                        .commitAllowingStateLoss()
-                    return@setOnItemSelectedListener true
+//                    supportFragmentManager.beginTransaction()
+//                        .replace(R.id.main_frm, WritingFragment())
+//                        .commitAllowingStateLoss()
+//                    return@setOnItemSelectedListener true
+                    val intent = Intent(this, WritingActivity::class.java)
+                    startActivity(intent)
                 }
 
                 R.id.mapFragment -> {

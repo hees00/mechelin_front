@@ -169,6 +169,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="39dp"
             android:layout_marginTop="20dp"
+            android:onClick="categoryClick"
             />
 
         <androidx.appcompat.widget.AppCompatToggleButton
@@ -187,6 +188,7 @@
             app:layout_constraintTop_toTopOf="@id/writing_category_koreanfood_tb"
             app:layout_constraintStart_toEndOf="@id/writing_category_koreanfood_tb"
             android:layout_marginStart="20dp"
+            android:onClick="categoryClick"
             />
 
         <androidx.appcompat.widget.AppCompatToggleButton
@@ -296,7 +298,7 @@
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-g
+
 
 <!--    나중에 변경-->
     <androidx.constraintlayout.widget.ConstraintLayout
