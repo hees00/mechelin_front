@@ -27,10 +27,16 @@
         <entry key="app/src/main/res/drawable/main_btm_map_selector.xml" value="0.18125" />
         <entry key="app/src/main/res/drawable/main_btm_writing_selector.xml" value="0.18125" />
         <entry key="app/src/main/res/drawable/recent_review_background.xml" value="0.14907407407407408" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.26426978116932764" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.75" />
-        <entry key="app/src/main/res/layout/item_recent_review.xml" value="1.0" />
+        <entry key="app/src/main/res/drawable/searchbar_background.xml" value="0.2916666666666667" />
+        <entry key="app/src/main/res/drawable/searching_item_background.xml" value="0.33897435897435896" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2341532486288143" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.55" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.5202818260640946" />
+        <entry key="app/src/main/res/layout/fragment_list.xml" value="0.171875" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.6277060735404081" />
+        <entry key="app/src/main/res/layout/item_recent_review.xml" value="0.694560669456067" />
         <entry key="app/src/main/res/layout/item_search_result.xml" value="0.28351449275362317" />
+        <entry key="app/src/main/res/layout/item_searching.xml" value="0.2696994313566206" />
         <entry key="app/src/main/res/menu/main_bnv_menu.xml" value="2.5" />
       </map>
     </option>
