@@ -55,9 +55,6 @@ class MainActivity : AppCompatActivity() {
             false
         }
 
-        binding.mainBtnArrowIv.setOnClickListener{
-                onBackPressed()
-        }
 
     }
 }
