@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="224px"
     android:layout_height="164px"
-    android:background="@drawable/recent_review_background"
+    android:background="#dddddd"
     android:layout_marginLeft="13px"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
