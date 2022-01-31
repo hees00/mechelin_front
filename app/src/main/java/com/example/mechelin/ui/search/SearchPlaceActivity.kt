@@ -1,9 +1,7 @@
 package com.example.mechelin.ui.save
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
@@ -11,11 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechelin.R
 import com.example.mechelin.data.SearchStore
 import com.example.mechelin.data.remote.KakaoapiInterface
-import com.example.mechelin.data.remote.Place
 import com.example.mechelin.data.remote.Researchkeyword
 import com.example.mechelin.databinding.ActivitySearchPlaceBinding
-import com.example.mechelin.ui.main.MainActivity
-import com.example.mechelin.ui.main.WritingFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
