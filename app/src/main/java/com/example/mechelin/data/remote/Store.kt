@@ -6,7 +6,9 @@ data class Store(
     var tel: String,
     var x: Double,
     var y: Double,
-    var review: Review,
+    var starRate: Double,
+    var contents: String,
+    var tagName: ArrayList<String>,
     var categoryIdx:Int,
     var deliveryService: String
 )

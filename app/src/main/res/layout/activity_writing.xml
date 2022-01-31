@@ -152,6 +152,7 @@
         android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@id/writing_category_select_tb">
 
+
         <androidx.appcompat.widget.AppCompatToggleButton
             style="@style/Widget.AppCompat.Button.Borderless"
             android:id="@+id/writing_category_koreanfood_tb"
@@ -169,7 +170,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="39dp"
             android:layout_marginTop="20dp"
-            android:onClick="categoryClick"
+            android:tag="1"
             />
 
         <androidx.appcompat.widget.AppCompatToggleButton
@@ -188,7 +189,8 @@
             app:layout_constraintTop_toTopOf="@id/writing_category_koreanfood_tb"
             app:layout_constraintStart_toEndOf="@id/writing_category_koreanfood_tb"
             android:layout_marginStart="20dp"
-            android:onClick="categoryClick"
+            android:onClick="onClick"
+            android:tag="2"
             />
 
         <androidx.appcompat.widget.AppCompatToggleButton
@@ -207,6 +209,7 @@
             app:layout_constraintTop_toTopOf="@id/writing_category_koreanfood_tb"
             app:layout_constraintStart_toEndOf="@id/writing_category_weternfood_tb"
             android:layout_marginStart="20dp"
+            android:tag="4"
             />
 
         <androidx.appcompat.widget.AppCompatToggleButton
@@ -225,6 +228,7 @@
             app:layout_constraintTop_toTopOf="@id/writing_category_koreanfood_tb"
             app:layout_constraintStart_toEndOf="@id/writing_category_chinese_tb"
             android:layout_marginStart="20dp"
+            android:tag="3"
             />
 
         <androidx.appcompat.widget.AppCompatToggleButton
@@ -244,6 +248,7 @@
             app:layout_constraintStart_toStartOf="@id/writing_category_koreanfood_tb"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="16dp"
+            android:tag="5"
             />
 
         <androidx.appcompat.widget.AppCompatToggleButton
@@ -261,6 +266,7 @@
             android:padding="10dp"
             app:layout_constraintTop_toTopOf="@id/writing_category_basedfood_tb"
             app:layout_constraintStart_toStartOf="@id/writing_category_weternfood_tb"
+            android:tag="6"
             />
 
         <androidx.appcompat.widget.AppCompatToggleButton
@@ -278,6 +284,7 @@
             android:padding="10dp"
             app:layout_constraintTop_toTopOf="@id/writing_category_basedfood_tb"
             app:layout_constraintStart_toStartOf="@id/writing_category_chinese_tb"
+            android:tag="7"
             />
 
         <androidx.appcompat.widget.AppCompatToggleButton
@@ -397,7 +404,5 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 </ScrollView>
