@@ -57,6 +57,7 @@
             android:background="@color/mechelin_gray_background"
             />
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/writing_search_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="식당 검색"
@@ -86,7 +87,7 @@
         android:id="@+id/writing_address_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="주소 자리"
+        android:text=""
         android:fontFamily="@font/scdream4"
         app:layout_constraintStart_toEndOf="@id/writing_address_tv"
         app:layout_constraintTop_toTopOf="@id/writing_address_tv"
@@ -123,7 +124,7 @@
         android:id="@+id/writing_phone_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="010-1111-1111"
+        android:text=""
         app:layout_constraintStart_toEndOf="@id/writing_phone_tv"
         app:layout_constraintTop_toTopOf="@id/writing_phone_tv"
         app:layout_constraintBottom_toBottomOf="@id/writing_phone_tv"
@@ -320,9 +321,9 @@
 
         <ImageView
             android:id="@+id/writing_score_iv"
-            android:layout_width="78dp"
+            android:layout_width="80dp"
             android:layout_height="50dp"
-            android:src="@drawable/writing_page_rating_gray"
+            android:src="@drawable/writingpage_rating_gray_xxhdpi"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="115dp"/>

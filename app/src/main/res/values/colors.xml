@@ -21,4 +21,6 @@
     <color name="mechelin_gray_font">#26958383</color>
     <color name="mechelin_gray_font2">#766c6c</color>
 
+    <color name="popup_transparent">#33000000</color>
+
 </resources>
