@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -169,7 +170,8 @@
             android:padding="10dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="39dp"
+            app:layout_constraintEnd_toStartOf="@id/writing_category_weternfood_tb"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             android:tag="1"
             />
@@ -189,6 +191,7 @@
             android:padding="10dp"
             app:layout_constraintTop_toTopOf="@id/writing_category_koreanfood_tb"
             app:layout_constraintStart_toEndOf="@id/writing_category_koreanfood_tb"
+            app:layout_constraintEnd_toStartOf="@id/writing_category_chinese_tb"
             android:layout_marginStart="20dp"
             android:onClick="onClick"
             android:tag="2"
@@ -209,6 +212,7 @@
             android:padding="10dp"
             app:layout_constraintTop_toTopOf="@id/writing_category_koreanfood_tb"
             app:layout_constraintStart_toEndOf="@id/writing_category_weternfood_tb"
+            app:layout_constraintEnd_toStartOf="@id/writing_category_japanese_tb"
             android:layout_marginStart="20dp"
             android:tag="4"
             />
@@ -228,7 +232,9 @@
             android:padding="10dp"
             app:layout_constraintTop_toTopOf="@id/writing_category_koreanfood_tb"
             app:layout_constraintStart_toEndOf="@id/writing_category_chinese_tb"
+            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="20dp"
+            android:layout_marginEnd="30dp"
             android:tag="3"
             />
 
@@ -247,8 +253,9 @@
             android:padding="10dp"
             app:layout_constraintTop_toBottomOf="@id/writing_category_koreanfood_tb"
             app:layout_constraintStart_toStartOf="@id/writing_category_koreanfood_tb"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="20dp"
             android:tag="5"
             />
 
@@ -298,6 +305,7 @@
             android:textOff="배달 가능"
             android:textOn="배달 가능"
             android:fontFamily="@font/scdream4"
+            android:textColor="@color/black"
             android:textSize="6dp"
             android:drawableTop="@drawable/delivery_writing_page_choose_category"
             android:padding="10dp"
@@ -349,6 +357,17 @@
                 android:layout_marginTop="12dp"/>
 
         </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/writing_upload_iv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo_splash_login_sighup"
+            android:visibility="gone"
+            android:layout_marginStart="5dp"
+            app:layout_constraintTop_toTopOf="@id/writing_upload_picture_cv"
+            app:layout_constraintStart_toEndOf="@id/writing_upload_picture_cv"/>
+
 
         <EditText
             android:id="@+id/writing_tag_et"

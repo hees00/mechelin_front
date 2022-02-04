@@ -1,4 +1,4 @@
-package com.example.mechelin.ui.save
+package com.example.mechelin.ui.search
 
 import android.app.Activity
 import android.content.Intent
@@ -16,6 +16,7 @@ import com.example.mechelin.databinding.ActivitySearchPlaceBinding
 import com.example.mechelin.ui.main.HomeFragment
 import com.example.mechelin.ui.main.MainActivity
 import com.example.mechelin.ui.main.WritingActivity
+import com.example.mechelin.ui.save.SearchRVAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -105,6 +106,7 @@ class SearchPlaceActivity : AppCompatActivity(){
 
 
     private fun putSelectedStore(store: SearchStore){
+        Log.d("putStore",store.toString())
         val intent = Intent(this, WritingActivity::class.java)
         intent.putExtra("storename",store.storename)
         intent.putExtra("storeaddress",store.storeaddress)

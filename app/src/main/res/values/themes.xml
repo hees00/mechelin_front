@@ -21,6 +21,15 @@
 
     </style>
 
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- enable window content transitions -->
+        <item name="android:windowContentTransitions">true</item>
+
+        <item name="android:windowTranslucentStatus">true</item>
+
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
     <style name="Transparent" parent="@style/Theme.AppCompat">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
