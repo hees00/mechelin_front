@@ -31,7 +31,7 @@ class SearchPlaceActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("createe","good")
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(com.example.mechelin.R.layout.activity_main)
 
         binding = ActivitySearchPlaceBinding.inflate(layoutInflater)
         val view = binding.root

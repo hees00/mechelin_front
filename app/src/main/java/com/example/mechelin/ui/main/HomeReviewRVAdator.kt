@@ -3,6 +3,7 @@ package com.example.mechelin.ui.main
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mechelin.R
 import com.example.mechelin.databinding.ItemRecentReviewBinding
 
 class HomeReviewRVAdator(private var reviewList: ArrayList<Review>): RecyclerView.Adapter<HomeReviewRVAdator.ViewHolder>() {
@@ -18,7 +19,6 @@ class HomeReviewRVAdator(private var reviewList: ArrayList<Review>): RecyclerVie
     override fun onBindViewHolder(holder: HomeReviewRVAdator.ViewHolder, position: Int) {
         holder.bind(reviewList[position])
 
-//        holder.itemView.setOnClickListener{}
     }
 
     override fun getItemCount(): Int = reviewList.size
@@ -28,7 +28,19 @@ class HomeReviewRVAdator(private var reviewList: ArrayList<Review>): RecyclerVie
             binding.itemReviewResTitleTv.text = review.storeName
             binding.itemReviewDetailTv.text = review.contents
             binding.itemReviewDateTv.text = review.createdAt
-//            binding.itemReviewScoreIv.setImageResource()
+
+            when(review.starRate){
+                5.0 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_5)
+                4.5 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_four_and_a_half)
+                4.0 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_4)
+                3.5 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_three_and_a_half)
+                3.0 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_3)
+                2.5 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_two_anf_a_half)
+                2.0 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_2)
+                1.5 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_one1and_a_half)
+                1.0 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_1)
+                0.5 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_half)
+            }
         }
 
     }

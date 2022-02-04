@@ -284,7 +284,6 @@ class WritingActivity: AppCompatActivity(){
             }
 
 
-
             override fun onFailure(call: Call<SaveStoreResponse>, t: Throwable) {
                 TODO("Not yet implemented")
             }

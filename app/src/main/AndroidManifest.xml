@@ -18,6 +18,7 @@
         android:theme="@style/Theme.Mechelin"
         android:usesCleartextTraffic="true"
         tools:replace="android:theme">
+
         <activity
             android:name="com.example.mechelin.ui.splash.SplashActivity"
             android:exported="true">
@@ -26,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.example.mechelin.ui.main.MainActivity"
             android:exported="true">
@@ -33,6 +35,8 @@
         <activity android:name=".ui.search.SearchPlaceActivity"/>
         <activity android:name=".ui.main.WritingActivity"
             android:windowSoftInputMode="adjustPan"/>
+
+        <activity android:name=".ui.main.SearchActivity"/>
         <activity android:name=".ui.main.PopupScoreActivity" android:theme="@style/Transparent"/>
     </application>
 </manifest>

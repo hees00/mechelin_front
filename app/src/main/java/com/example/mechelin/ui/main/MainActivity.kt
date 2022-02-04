@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initNavigation()
+        searching()
     }
 
     private fun initNavigation() {
@@ -32,10 +33,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.writingFragment -> {
-//                    supportFragmentManager.beginTransaction()
-//                        .replace(R.id.main_frm, WritingFragment())
-//                        .commitAllowingStateLoss()
-//                    return@setOnItemSelectedListener true
                     val intent = Intent(this, WritingActivity::class.java)
                     startActivity(intent)
                 }
@@ -58,6 +55,13 @@ class MainActivity : AppCompatActivity() {
             false
         }
 
-
     }
+
+    private fun searching() {
+        binding.mainBtnSearchIv.setOnClickListener {
+            val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
 }

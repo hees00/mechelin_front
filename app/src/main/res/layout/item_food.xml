@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="13dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/item_food_01_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/item_food_photo_03_cv"
+                android:layout_width="98dp"
+                android:layout_height="98dp"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+                <ImageView
+                    android:id="@+id/item_food_photo_03_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/logo_splash_login_sighup"
+                    />
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/item_food_starrate_03_iv"
+                android:layout_width="38dp"
+                android:layout_height="28dp"
+                android:src="@drawable/list_page_rating_4"
+                app:layout_constraintStart_toStartOf="@id/item_food_photo_03_cv"
+                app:layout_constraintTop_toBottomOf="@id/item_food_photo_03_cv"
+                />
+
+            <TextView
+                android:id="@+id/item_food_storename_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="가게이름"
+                android:textStyle="normal"
+                android:textSize="10sp"
+                android:textColor="@color/mechelin_gray_font2"
+                android:fontFamily="@font/scdream5"
+                app:layout_constraintStart_toStartOf="@id/item_food_photo_03_cv"
+                app:layout_constraintTop_toBottomOf="@id/item_food_starrate_03_iv"
+                />
+
+            <TextView
+                android:id="@+id/item_food_address_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="가게주소"
+                android:textColor="#958383"
+                android:textSize="6sp"
+                android:textStyle="normal"
+                android:fontFamily="@font/scdream4"
+                android:layout_marginStart="2dp"
+                app:layout_constraintStart_toEndOf="@id/item_food_storename_tv"
+                app:layout_constraintBottom_toBottomOf="@id/item_food_storename_tv"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#해시태그"
+                android:textSize="6sp"
+                android:textColor="#e54b4b"
+                android:textStyle="normal"
+                android:fontFamily="@font/scdream4"
+                android:layout_marginTop="3dp"
+                app:layout_constraintStart_toStartOf="@id/item_food_photo_03_cv"
+                app:layout_constraintTop_toBottomOf="@id/item_food_storename_tv"
+                />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
