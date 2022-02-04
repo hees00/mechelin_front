@@ -4,15 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mechelin.databinding.FragmentListBinding
-import com.example.mechelin.databinding.FragmentMapBinding
+import androidx.recyclerview.widget.ListAdapter
+import com.example.mechelin.R
 import com.example.mechelin.databinding.FragmentSearchwordHashtagBinding
 
-class ListFragment: Fragment() {
 
-    lateinit var binding: FragmentListBinding
+class SearchwordHashtagFragment: Fragment() {
+
+    lateinit var binding: FragmentSearchwordHashtagBinding
     private var foodDatas = ArrayList<Food>()
 
     override fun onCreateView(
@@ -20,15 +23,15 @@ class ListFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        binding = FragmentListBinding.inflate(layoutInflater)
+        binding = FragmentSearchwordHashtagBinding.inflate(layoutInflater)
 
         val foodRVAdator = FoodRVAdator(foodDatas)
 
-        binding.listRecyclerview.adapter = foodRVAdator
+        binding.searchwordHashtagRecyclerview.adapter = foodRVAdator
 
-        binding.listRecyclerview.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.searchwordHashtagRecyclerview.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
         return binding.root
     }
+
 }

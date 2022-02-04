@@ -1,5 +1,6 @@
 package com.example.mechelin.ui.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mechelin.R
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initNavigation()
+        searching()
     }
 
     private fun initNavigation() {
@@ -54,6 +56,13 @@ class MainActivity : AppCompatActivity() {
             false
         }
 
-
     }
+
+    private fun searching() {
+        binding.mainBtnSearchIv.setOnClickListener {
+            val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
 }
