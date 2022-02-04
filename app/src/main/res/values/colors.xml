@@ -13,6 +13,7 @@
     <color name="colorAccent">#6bb2ff</color>
 
     <color name="main_color">#e54b4b</color>
+    <color name="sub_color">#80f2d4d4</color>
     <color name="mechelin_gray">#6A6A6A</color>
     <color name="mechelin_splash_color">#E54B4B</color>
     <color name="mechelin_review_gray">#F0F0F0</color>
@@ -20,4 +21,5 @@
     <color name="mechelin_gray_font">#26958383</color>
     <color name="mechelin_gray_font2">#766c6c</color>
 
+    <color name="popup_transparent">#33000000</color>
 </resources>

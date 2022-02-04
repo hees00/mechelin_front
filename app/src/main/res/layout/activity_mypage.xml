@@ -5,6 +5,83 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
    >
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mypage_save_place_view"
+        android:layout_width="0dp"
+        android:layout_height="130dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/mypage_profile_layout"
+        app:layout_constraintEnd_toStartOf="@id/mypage_total_review_view"
+        android:background="@drawable/mypage_card_small"
+        android:layout_marginTop="60dp"
+        android:elevation="2dp"
+        >
+        <TextView
+            android:id="@+id/mypage_save_place_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저장한 식당"
+            android:fontFamily="@font/scdream4"
+            android:textSize="8dp"
+            android:textColor="#ffffff"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/mypage_save_place_content_tv"/>
+        <TextView
+            android:id="@+id/mypage_save_place_content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="24dp"
+            android:textColor="#ffffff"
+            app:layout_constraintTop_toBottomOf="@id/mypage_save_place_title_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="20dp"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mypage_total_review_view"
+        android:layout_width="0dp"
+        android:layout_height="130dp"
+        app:layout_constraintStart_toEndOf="@id/mypage_save_place_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/mypage_save_place_view"
+        android:background="@drawable/mypage_card_small"
+        android:elevation="2dp">
+        <TextView
+            android:id="@+id/mypage_total_review_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저장한 식당"
+            android:fontFamily="@font/scdream4"
+            android:textSize="8dp"
+            android:textColor="#ffffff"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/mypage_total_review_content_tv"/>
+        <TextView
+            android:id="@+id/mypage_total_review_content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="24dp"
+            android:textColor="#ffffff"
+            app:layout_constraintTop_toBottomOf="@id/mypage_total_review_title_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="20dp"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mypage_profile_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/mypage_card_round"
@@ -38,6 +115,59 @@
             android:layout_marginBottom="30dp"
             android:fontFamily="@font/scdream4"
             />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/mypage_logout_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그아웃"
+        android:textSize="10dp"
+        android:fontFamily="@font/scdream4"
+        app:layout_constraintTop_toBottomOf="@id/mypage_save_place_view"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <View
+        android:id="@+id/mypage_logout_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mypage_logout_tv"
+        android:background="@color/mechelin_gray_font"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/mypage_resign_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원탈퇴"
+        android:textSize="10dp"
+        android:fontFamily="@font/scdream4"
+        app:layout_constraintTop_toBottomOf="@id/mypage_logout_line"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <View
+        android:id="@+id/mypage_resign_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mypage_resign_tv"
+        android:background="@color/mechelin_gray_font"
+        android:layout_marginTop="20dp"
+        />
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

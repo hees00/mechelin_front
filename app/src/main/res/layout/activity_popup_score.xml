@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ffffff"
+    app:cardCornerRadius="15dp"
+    tools:context=".ui.main.PopupScoreActivity"
+    android:layout_marginHorizontal="50dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/popup_score_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <com.hedgehog.ratingbar.RatingBar
+                android:id="@+id/popup_score_ratingbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                app:starCount="5"
+                app:halfstart="true"
+                app:starFill="@drawable/writingpage_rating_drag_red_1_xxhdpi"
+                app:starHalf="@drawable/writingpage_rating_drag_red_half_xxhdpi"
+                app:starEmpty="@drawable/writingpage_rating_drag_gray_1_xxdpi"
+                app:starImageWidth="30dp"
+                app:starImageHeight="20dp"
+                app:starImagePadding="0dp"
+                app:starNum="0"
+                android:layout_marginTop="30dp"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/popup_score_info_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="좌우로 드래그하세요"
+            app:layout_constraintTop_toBottomOf="@id/popup_score_layout"
+            app:layout_constraintBottom_toTopOf="@id/popup_score_btn_cancel_tv"
+            android:fontFamily="@font/scdream4"
+            android:layout_marginTop="10dp"
+            android:textSize="8dp"
+            />
+
+       <TextView
+            android:id="@+id/popup_score_btn_cancel_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/popup_score_info_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/popup_score_btn_confirm_tv"
+            android:text="취소"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/sub_color"
+            android:textSize="10dp"
+            android:fontFamily="@font/scdream4"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/popup_score_btn_confirm_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/popup_score_btn_cancel_tv"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/popup_score_btn_cancel_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="확인"
+            android:textColor="#ffffff"
+            android:paddingVertical="12dp"
+            android:background="@color/main_color"
+            android:fontFamily="@font/scdream4"
+            android:textSize="10dp"
+            android:textAlignment="center"
+            android:gravity="center"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    
+</androidx.cardview.widget.CardView>

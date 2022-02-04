@@ -1,5 +1,7 @@
-package com.example.mechelin.ui.save
+package com.example.mechelin.ui.search
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +13,10 @@ import com.example.mechelin.data.SearchStore
 import com.example.mechelin.data.remote.KakaoapiInterface
 import com.example.mechelin.data.remote.Researchkeyword
 import com.example.mechelin.databinding.ActivitySearchPlaceBinding
+import com.example.mechelin.ui.main.HomeFragment
+import com.example.mechelin.ui.main.MainActivity
+import com.example.mechelin.ui.main.WritingActivity
+import com.example.mechelin.ui.save.SearchRVAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,7 +31,7 @@ class SearchPlaceActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("createe","good")
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(com.example.mechelin.R.layout.activity_main)
 
         binding = ActivitySearchPlaceBinding.inflate(layoutInflater)
         val view = binding.root
@@ -49,7 +55,7 @@ class SearchPlaceActivity : AppCompatActivity(){
 
     companion object {
         const val BASE_URL = "https://dapi.kakao.com/"
-        const val API_KEY = "KakaoAK **********"  // REST API 키
+        const val API_KEY = "KakaoAK b897e9989fedf2db699cf5b819537e64"  // REST API 키
     }
 
     private fun searchKeyword(keyword: String) {
@@ -90,7 +96,7 @@ class SearchPlaceActivity : AppCompatActivity(){
 
         //어댑터 설정
         val searchRVAdapter = SearchRVAdapter(StoreDatas,itemClickedListener={
-            getselectedStore(WritingFragment(),it)
+            putSelectedStore(it)
         })
         //리사이클러 뷰에 연결
         binding.searchResultRv.adapter= searchRVAdapter
@@ -99,13 +105,16 @@ class SearchPlaceActivity : AppCompatActivity(){
     }
 
 
-    private fun getselectedStore(fragment: Fragment,store: SearchStore){
-        val bundle = Bundle()
-        bundle.putParcelable("store",store)
-        fragment.arguments = bundle
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.main_frm,fragment)
-        transaction.commit()
+    private fun putSelectedStore(store: SearchStore){
+        Log.d("putStore",store.toString())
+        val intent = Intent(this, WritingActivity::class.java)
+        intent.putExtra("storename",store.storename)
+        intent.putExtra("storeaddress",store.storeaddress)
+        intent.putExtra("x",store.x)
+        intent.putExtra("y",store.y)
+        intent.putExtra("phone",store.phone)
+        setResult(Activity.RESULT_OK, intent)
+        finish()
     }
 
 }
