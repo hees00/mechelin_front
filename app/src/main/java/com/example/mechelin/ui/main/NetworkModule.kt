@@ -9,7 +9,7 @@ import java.io.IOException
 
 
 object ApiClient {
-        private const val BASE_URL = "https://www.mechelin.shop"
+        private const val BASE_URL = "https://dev.mechelin.shop"
 
         fun getRetrofit(): Retrofit {
             return Retrofit.Builder()
@@ -29,7 +29,7 @@ object ApiClient {
             @Throws(IOException::class)
             override fun intercept(chain: Interceptor.Chain) : Response = with(chain) {
                 val newRequest = request().newBuilder()
-                    .addHeader("X-ACCESS-TOKEN", "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NDMxODI3OTgsImV4cCI6MTY0NDY1NDAyN30.DbSSP33jrEbMC6-6ZHNvzwcDUihW-ydXw1Re9F7PpJA")
+                    .addHeader("X-ACCESS-TOKEN", "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NDI1MjQ3NDgsImV4cCI6MTY0Mzk5NTk3N30.B6vyg-qnjJ_7bhsyXNAfrxAFcYyYUpn3CQobpEL8yTc")
                     .build()
                 proceed(newRequest)
             }
