@@ -1,6 +1,5 @@
-package com.example.mechelin.ui.main
+package com.example.mechelin.ui.savestore
 
-import android.Manifest
 import android.app.Activity
 import android.os.Bundle
 import android.util.Log
@@ -10,39 +9,25 @@ import com.example.mechelin.R
 import com.example.mechelin.data.remote.Store
 import com.example.mechelin.databinding.ActivityWritingBinding
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.ImageDecoder
 import android.net.Uri
-import android.os.Build
-import android.os.Environment
-import android.provider.MediaStore
-import android.text.TextUtils
 import android.view.LayoutInflater
-import android.widget.ImageView
-import android.widget.RatingBar
 import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
+import androidx.core.net.toFile
 import androidx.core.widget.doAfterTextChanged
-import com.example.mechelin.BuildConfig
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechelin.data.remote.SaveStoreResponse
 import com.example.mechelin.data.remote.SaveStoreService
-import com.example.mechelin.databinding.ActivityPopupScoreBinding
+import com.example.mechelin.ui.save.SearchRVAdapter
 import com.example.mechelin.ui.search.SearchPlaceActivity
+import okhttp3.MediaType
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import java.io.File
-import androidx.core.app.ActivityCompat.startActivityForResult
-
-
-
 
 
 class WritingActivity: AppCompatActivity(){
@@ -118,6 +103,7 @@ class WritingActivity: AppCompatActivity(){
         //별점 받기
         binding.writingScoreIv.setOnClickListener {
             getStarscore()
+
         }
 
         //해시태그
@@ -183,6 +169,19 @@ class WritingActivity: AppCompatActivity(){
         mDialogView.findViewById<com.hedgehog.ratingbar.RatingBar>(R.id.popup_score_ratingbar).setOnRatingChangeListener{
             Log.d("starscore",it.toString())
             store.starRate= it.toDouble()
+            when(store.starRate){
+                5.0 -> binding.writingScoreIv.setImageResource(R.drawable.writingpage_rating_drag_5_xxhdpi)
+                4.5 -> binding.writingScoreIv.setImageResource(R.drawable.writingpage_rating_drag_4andhalf_xxhdpi)
+                4.0 -> binding.writingScoreIv.setImageResource(R.drawable.writingpage_rating_drag_4_xxhdpi)
+                3.5 -> binding.writingScoreIv.setImageResource(R.drawable.writingpage_rating_drag_3andhalf_xxhdpi)
+                3.0 -> binding.writingScoreIv.setImageResource(R.drawable.writingpage_rating_drag_3_xxhdpi)
+                2.5 -> binding.writingScoreIv.setImageResource(R.drawable.writingpage_rating_drag_2andhalf_xxhdpi)
+                2.0 -> binding.writingScoreIv.setImageResource(R.drawable.writingpage_rating_drag_2_xxhdpi)
+                1.5 -> binding.writingScoreIv.setImageResource(R.drawable.writingpage_rating_drag_1andhalf_xxhdpi)
+                1.0 -> binding.writingScoreIv.setImageResource(R.drawable.writingpage_rating_drag_1_xxhdpi)
+                0.5 -> binding.writingScoreIv.setImageResource(R.drawable.writingpage_rating_drag_half_xxhdpi)
+                0.0 -> binding.writingScoreIv.setImageResource(R.drawable.writingpage_rating_gray_xxhdpi)
+            }
         }
         mDialogView.findViewById<TextView>(R.id.popup_score_btn_confirm_tv).setOnClickListener {
             mAlertDialog.dismiss()
@@ -192,6 +191,16 @@ class WritingActivity: AppCompatActivity(){
             mAlertDialog.dismiss()
         }
 
+    }
+
+    //리사이클러뷰
+    fun showpictures(){
+        val selectpicturesRVAdapter= SelectPicturesRVAdapter(imageList)
+        //리사이클러 뷰에 연결
+        binding.writingUploadRv.adapter=selectpicturesRVAdapter
+        //레이아웃 매니저 설정 (아이템 배치 어떻게?)
+        binding.writingUploadRv.layoutManager=
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
     }
 
 
@@ -232,9 +241,10 @@ class WritingActivity: AppCompatActivity(){
                     val imageUri = result.data?.clipData!!.getItemAt(i).uri
                     imageList.add(imageUri)
                 }
-                binding.writingUploadIv.visibility= View.VISIBLE
-                binding.writingUploadIv.setImageURI(result.data?.clipData!!.getItemAt(0).uri)
-                binding.writingUploadIv.setImageURI(imageList[0])
+                showpictures()
+//                binding.writingUploadRv.visibility= View.VISIBLE
+//                binding.writingUploadIv.setImageURI(result.data?.clipData!!.getItemAt(0).uri)
+//                binding.writingUploadIv.setImageURI(imageList[0])
 
 //                    if (count > 1) {
 //                        binding.tvImageCount.visibility = View.VISIBLE
@@ -246,8 +256,9 @@ class WritingActivity: AppCompatActivity(){
                 result.data?.data?.let { uri ->
                     imageList.clear()
                     imageList.add(uri)
-                    binding.writingUploadIv.visibility= View.VISIBLE
-                    binding.writingUploadIv.setImageURI(uri)
+                    binding.writingUploadRv.visibility= View.VISIBLE
+//                    binding.writingUploadIv.setImageURI(uri)
+                    showpictures()
                     Log.d("onephoto",uri.toString())
 //                        binding.tvImageCount.visibility = View.GONE
                 }
@@ -260,6 +271,8 @@ class WritingActivity: AppCompatActivity(){
         //레트로핏 객체 만듦
         val retrofit = Retrofit.Builder().baseUrl("https://dev.mechelin.shop").build()
         val saveStoreService = retrofit.create(SaveStoreService::class.java)
+        val image = imageList[0].toFile()
+        val sendimage = RequestBody.create(MediaType.parse("image/jpeg"), image)
 
         saveStoreService.saveStore(store).enqueue(object : Callback<SaveStoreResponse>{
             override fun onResponse(call: Call<SaveStoreResponse>, response: Response<SaveStoreResponse>) {

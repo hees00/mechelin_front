@@ -6,16 +6,12 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mechelin.R
 import com.example.mechelin.data.SearchStore
 import com.example.mechelin.data.remote.KakaoapiInterface
 import com.example.mechelin.data.remote.Researchkeyword
 import com.example.mechelin.databinding.ActivitySearchPlaceBinding
-import com.example.mechelin.ui.main.HomeFragment
-import com.example.mechelin.ui.main.MainActivity
-import com.example.mechelin.ui.main.WritingActivity
+import com.example.mechelin.ui.savestore.WritingActivity
 import com.example.mechelin.ui.save.SearchRVAdapter
 import retrofit2.Call
 import retrofit2.Callback

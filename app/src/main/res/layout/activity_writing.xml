@@ -358,15 +358,15 @@
 
             </androidx.cardview.widget.CardView>
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/writing_upload_iv"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/logo_splash_login_sighup"
-                android:visibility="gone"
-                android:layout_marginStart="5dp"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/writing_upload_rv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                tools:listitem="@layout/item_upload_picture"
                 app:layout_constraintTop_toTopOf="@id/writing_upload_picture_cv"
-                app:layout_constraintStart_toEndOf="@id/writing_upload_picture_cv"/>
+                app:layout_constraintStart_toEndOf="@id/writing_upload_picture_cv"
+                />
 
 
             <EditText

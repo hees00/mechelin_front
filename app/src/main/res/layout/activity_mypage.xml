@@ -4,6 +4,29 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mypage_top_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#ffffff"
+        android:elevation="20dp"
+        android:outlineProvider="none"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mypage_top_icon_iv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/topbar_mypage_red_xxhdpi"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="30dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mypage_save_place_view"
         android:layout_width="0dp"
@@ -86,8 +109,9 @@
         android:layout_height="wrap_content"
         android:background="@drawable/mypage_card_round"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:elevation="2dp">
+        app:layout_constraintTop_toBottomOf="@id/mypage_top_view"
+        android:elevation="2dp"
+        >
         <TextView
             android:id="@+id/mypage_nickname_tv"
             android:layout_width="wrap_content"
@@ -97,7 +121,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/scdream4"
             />
 
