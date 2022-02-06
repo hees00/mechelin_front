@@ -29,6 +29,12 @@
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/item_search_result.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/item_searching.xml" value="0.1" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/menu/main_bnv_menu.xml" value="0.1" />
+        <entry key="..\:/mechelin_5/app/src/main/res/drawable-v24/login_signup_btn_deactivate.xml" value="0.26979166666666665" />
+        <entry key="..\:/mechelin_5/app/src/main/res/drawable/signup_btn_var_background.xml" value="0.26979166666666665" />
+        <entry key="..\:/mechelin_5/app/src/main/res/layout/activity_login.xml" value="0.2342007434944238" />
+        <entry key="..\:/mechelin_5/app/src/main/res/layout/activity_login_main.xml" value="0.2" />
+        <entry key="..\:/mechelin_5/app/src/main/res/layout/activity_signup.xml" value="0.4" />
+        <entry key="..\:/mechelin_5/app/src/main/res/layout/activity_signup_term.xml" value="0.25364583333333335" />
         <entry key="app/src/main/res/drawable/main_btm_color_selector.xml" value="0.18125" />
         <entry key="app/src/main/res/drawable/main_btm_home_selector.xml" value="0.18125" />
         <entry key="app/src/main/res/drawable/main_btm_list_selector.xml" value="0.18125" />

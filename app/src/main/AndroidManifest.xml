@@ -38,6 +38,8 @@
                   android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".ui.main.SearchActivity"/>
         <activity android:name=".ui.main.PopupScoreActivity" android:theme="@style/Transparent"/>
+        <activity android:name=".ui.signup.SignupActivity"/>
+        <activity android:name=".ui.signin.LoginActivity"/>
     </application>
 
 </manifest>
