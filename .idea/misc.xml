@@ -14,6 +14,8 @@
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/drawable/mypage_card_small.xml" value="0.15683760683760684" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/drawable/shadow_down.xml" value="0.144017094017094" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/font/font.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_login.xml" value="0.13076923076923078" />
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_login_main.xml" value="0.13076923076923078" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_mypage.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_popup_score.xml" value="0.6462093862815884" />
@@ -21,6 +23,8 @@
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_save_restaurant.xml" value="0.22" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_search.xml" value="0.1" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_search_place.xml" value="0.13228699551569506" />
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_signup.xml" value="0.10666666666666667" />
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_signup_term.xml" value="0.13076923076923078" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_welcome.xml" value="0.14358974358974358" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_writing.xml" value="0.2072155411655874" />

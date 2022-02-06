@@ -31,11 +31,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechelin.data.remote.SaveStoreResponse
 import com.example.mechelin.data.remote.SaveStoreService
 import com.example.mechelin.ui.main.ApiClient
+import com.example.mechelin.ui.main.ReviewInterface
 import com.example.mechelin.ui.save.SearchRVAdapter
 import com.example.mechelin.ui.search.SearchPlaceActivity
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
@@ -48,7 +51,7 @@ class WritingActivity: AppCompatActivity(){
 
     lateinit var binding: ActivityWritingBinding
 
-    var store: Store = Store(1,"","","",0.0,0.0,0.0,"리뷰내용", arrayListOf<String>(),1,"N")
+    var store: Store = Store(1,0,"N","","",0.0,0.0,"", arrayListOf<String>(),0.0,"")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -144,7 +147,7 @@ class WritingActivity: AppCompatActivity(){
         binding.writingCompleteButtonTv.setOnClickListener {
             savePlace()
             Log.d("saveplace",store.toString())
-            Log.d("saveplace",imageList.toString())
+//            Log.d("saveplace",imageList.toString())
         }
 
         //사진 업로드
@@ -301,23 +304,45 @@ class WritingActivity: AppCompatActivity(){
     //식당 저장
     fun savePlace(){
 
+//        val reviewService = ApiClient.getRetrofit().create(ReviewInterface::class.java)
         //레트로핏 객체 만들기
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://dev.mechelin.shop")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+        val retrofit = ApiClient.getRetrofit().create(SaveStoreService::class.java)
 
-        val saveStoreService = retrofit.create(SaveStoreService::class.java)
+//            .addConverterFactory(GsonConverterFactory.create())
 
-        val image= getPathFromUri(imageList[0])
-        val sendimage = RequestBody.create(MediaType.parse("image/jpeg"), image)
-        val multibody : MultipartBody.Part = MultipartBody.Part.createFormData("imageFile","image.jpeg",sendimage)
+//        val image= getPathFromUri(imageList[0])
+//        val sendimage = RequestBody.create(MediaType.parse("image/png"), image)
+//        val multibody : MultipartBody.Part = MultipartBody.Part.createFormData("imageFile","image.jpeg",sendimage)
 
-        val sendstore = RequestBody.create(MediaType.parse("text/plain"),store.toString())
+//        val sendstore = RequestBody.create(MediaType.parse("application/json"),store.toString())
+//        ss.toRequestBody(“application/json”.toMediaTypeOrNull())
 
-        saveStoreService.saveStore(sendstore, multibody).enqueue(object : Callback<SaveStoreResponse>{
+        val jsonObject = JSONObject()
+
+        jsonObject.put("userIdx", store.userIdx)
+        jsonObject.put("categoryIdx", store.categoryIdx)
+        jsonObject.put("deliveryService", store.deliveryService)
+        jsonObject.put("storeName", store.storeName)
+        jsonObject.put("address", store.address)
+        jsonObject.put("x", store.x)
+        jsonObject.put("y", store.y)
+        jsonObject.put("tel", store.tel)
+        jsonObject.put("tagName", store.tagName)
+        jsonObject.put("starRate", store.starRate)
+        jsonObject.put("contents", store.contents)
+
+        val ss =jsonObject.toString()
+        Log.d("JSON",ss)
+        val sendstore = ss.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
+
+        Log.d("API-REQUEST",sendstore.toString())
+//        Log.d("API-REQUEST",multibody.toString())
+
+        retrofit.saveStore(jsonObject).enqueue(object : Callback<SaveStoreResponse>{
+
             override fun onResponse(call: Call<SaveStoreResponse>, response: Response<SaveStoreResponse>) {
-
+                Log.d("REQUEST-SUCCESS","onresponse 들어옴")
+                Log.d("REQUEST-SUCCESS",response.toString())
                 val resp = response.body()
                 Log.d("writing-resp",resp!!.code.toString())
                 Log.d("writing-resp",resp.result.toString())
@@ -391,7 +416,6 @@ class WritingActivity: AppCompatActivity(){
             }
         }
     }
-
-
 }
+
 

@@ -29,7 +29,7 @@ object ApiClient {
             @Throws(IOException::class)
             override fun intercept(chain: Interceptor.Chain) : Response = with(chain) {
                 val newRequest = request().newBuilder()
-                    .addHeader("X-ACCESS-TOKEN", "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NDI1OTk2NDUsImV4cCI6MTY0NDA3MDg3NH0.3LrAwkLyscI0J-zxYwS4FbjHPi-kQ30nmYQGWgqgLXE")
+                    .addHeader("X-ACCESS-TOKEN", "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NDMxMjMzMTYsImV4cCI6MTY0NDU5NDU0NX0.wOJNaQLNiw1wp3tL8O1fyVQ0e26DTaa_Ip8ir0GApPM")
                     .build()
                 proceed(newRequest)
             }

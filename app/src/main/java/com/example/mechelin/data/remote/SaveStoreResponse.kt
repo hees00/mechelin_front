@@ -1,7 +1,9 @@
 package com.example.mechelin.data.remote
 
 import com.google.gson.annotations.SerializedName
+import java.lang.reflect.Constructor
 import java.util.*
+
 
 data class SaveStoreResponse(
     @SerializedName("isSuccess") val isSuccess:Boolean,
