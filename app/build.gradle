@@ -76,4 +76,5 @@ dependencies {
     //custom rating bar
     implementation 'com.hedgehog.ratingbar:app:1.1.2'
 
+
 }

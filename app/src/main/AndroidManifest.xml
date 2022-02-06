@@ -18,7 +18,9 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Mechelin"
+        android:requestLegacyExternalStorage="true"
         tools:replace="android:theme">
+
         <activity
             android:name="com.example.mechelin.ui.splash.SplashActivity"
             android:exported="true">

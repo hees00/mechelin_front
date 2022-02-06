@@ -1,6 +1,7 @@
 package com.example.mechelin.ui.savestore
 
 import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,32 +10,45 @@ import com.example.mechelin.R
 import com.example.mechelin.data.remote.Store
 import com.example.mechelin.databinding.ActivityWritingBinding
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.content.pm.PackageManager.PERMISSION_DENIED
+import android.database.Cursor
+import android.media.tv.TvContract.Channels.CONTENT_TYPE
 import android.net.Uri
+import android.os.Build
+import android.provider.MediaStore
+import android.provider.MediaStore.Images.Media.CONTENT_TYPE
 import android.view.LayoutInflater
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.net.toFile
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechelin.data.remote.SaveStoreResponse
 import com.example.mechelin.data.remote.SaveStoreService
+import com.example.mechelin.ui.main.ApiClient
 import com.example.mechelin.ui.save.SearchRVAdapter
 import com.example.mechelin.ui.search.SearchPlaceActivity
 import okhttp3.MediaType
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
+import org.json.JSONObject
+import retrofit2.*
+import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
+import java.util.jar.Manifest
 
 
 class WritingActivity: AppCompatActivity(){
 
+
     lateinit var binding: ActivityWritingBinding
 
-    var store: Store = Store(0,"","","",0.0,0.0,0.0,"리뷰내용", arrayListOf<String>(),1,"N")
+    var store: Store = Store(1,"","","",0.0,0.0,0.0,"리뷰내용", arrayListOf<String>(),1,"N")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -128,23 +142,34 @@ class WritingActivity: AppCompatActivity(){
 
         //완료 버튼 눌렀을 때
         binding.writingCompleteButtonTv.setOnClickListener {
-//            savePlace()
+            savePlace()
             Log.d("saveplace",store.toString())
+            Log.d("saveplace",imageList.toString())
         }
 
         //사진 업로드
         binding.writingUploadPictureCv.setOnClickListener {
 //            uploadPhoto()
-            val intent = Intent()
-            intent.type = "image/*"
-            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-            intent.action = Intent.ACTION_GET_CONTENT
+//            val intent = Intent()
+//            intent.type = "image/*"
+//            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+//            intent.action = Intent.ACTION_GET_CONTENT
+//
+//            getphotoLauncher.launch(intent)
+            requeststorage()
 
-            getphotoLauncher.launch(intent)
+
         }
 
 
     }
+
+
+
+
+
+
+
 
 
     //해시태그 만들기
@@ -265,22 +290,40 @@ class WritingActivity: AppCompatActivity(){
             }
         }
     }
+    fun getpictures(){
+        val intent = Intent()
+        intent.setType(MediaStore.Images.Media.CONTENT_TYPE)
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+        intent.action = Intent.ACTION_GET_CONTENT
+        getphotoLauncher.launch(intent)
+    }
 
     //식당 저장
     fun savePlace(){
-        //레트로핏 객체 만듦
-        val retrofit = Retrofit.Builder().baseUrl("https://dev.mechelin.shop").build()
+
+        //레트로핏 객체 만들기
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://dev.mechelin.shop")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
         val saveStoreService = retrofit.create(SaveStoreService::class.java)
-        val image = imageList[0].toFile()
+
+        val image= getPathFromUri(imageList[0])
         val sendimage = RequestBody.create(MediaType.parse("image/jpeg"), image)
+        val multibody : MultipartBody.Part = MultipartBody.Part.createFormData("imageFile","image.jpeg",sendimage)
 
-        saveStoreService.saveStore(store).enqueue(object : Callback<SaveStoreResponse>{
+        val sendstore = RequestBody.create(MediaType.parse("text/plain"),store.toString())
+
+        saveStoreService.saveStore(sendstore, multibody).enqueue(object : Callback<SaveStoreResponse>{
             override fun onResponse(call: Call<SaveStoreResponse>, response: Response<SaveStoreResponse>) {
-                val resp = response.body()!!
 
-                Log.d("writing-resp",resp.message)
+                val resp = response.body()
+                Log.d("writing-resp",resp!!.code.toString())
+                Log.d("writing-resp",resp.result.toString())
                 when(resp.code){
-                    1000 -> finish()
+//                    1000 -> finish()
+                    1000-> Log.d("SAVESUCCESS",resp.result.toString())
                     2040,2041,2042,2043,2044 -> {
                         AlertDialog.Builder(this@WritingActivity)
                             .setMessage(resp.message)
@@ -296,15 +339,58 @@ class WritingActivity: AppCompatActivity(){
                 }
             }
 
-
             override fun onFailure(call: Call<SaveStoreResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.e("SAVESTORE/API-ERROR", t.message.toString())
             }
 
         })
     }
 
+    fun getPathFromUri(uri: Uri?): String? {
+        val cursor = contentResolver.query(uri!!, null, null, null, null)
+        cursor!!.moveToNext()
+        val path = cursor.getString(cursor.getColumnIndexOrThrow("_data"))
+        cursor.close()
+        return path
+    }
 
+
+
+
+    private fun requeststorage() {
+        // 1. 위험권한(Camera) 권한 승인상태 가져오기
+        val cameraPermission = ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+        if (cameraPermission == PackageManager.PERMISSION_GRANTED) {
+            // 카메라 권한이 승인된 상태일 경우
+            getpictures()
+
+        } else {
+            // 카메라 권한이 승인되지 않았을 경우
+            requestPermission()
+        }
+    }
+
+    // 2. 권한 요청
+    private fun requestPermission() {
+        ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 99)
+    }
+
+    // 권한 처리
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            99 -> {
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    getpictures()
+                } else {
+                    Log.d("REQUEST_DENIED", "종료")
+                }
+            }
+        }
+    }
 
 
 }

@@ -420,9 +420,17 @@
                 android:gravity="top|left"
                 android:padding="10dp"/>
 
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1000자 이내(공백 포함)"
+                app:layout_constraintEnd_toEndOf="@id/writing_review_content_et"
+                app:layout_constraintTop_toBottomOf="@id/writing_review_content_et"
+                android:fontFamily="@font/scdream4"
+                android:textSize="10dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
