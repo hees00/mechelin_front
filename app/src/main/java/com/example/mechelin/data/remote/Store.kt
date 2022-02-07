@@ -2,6 +2,7 @@ package com.example.mechelin.data.remote
 
 import com.google.gson.annotations.SerializedName
 
+
 data class Store(
     @SerializedName("userIdx") var userIdx:Int,
     @SerializedName("categoryIdx")var categoryIdx:Int,
@@ -16,6 +17,10 @@ data class Store(
     @SerializedName("contents")var contents: String
 )
 
+
+data class postStoreReq(
+    @SerializedName("postStoreReq") var postStoreReq: Store
+)
 data class Review(
     var starRate: Double,
     var contents: String,

@@ -1,21 +1,19 @@
-package com.example.mechelin.data.remote
+package com.example.mechelin.ui.savestore
 
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import org.json.JSONObject
+import com.example.mechelin.data.remote.SaveStoreResponse
+import com.example.mechelin.data.remote.postStoreReq
 import retrofit2.Call
 import retrofit2.http.*
 
 interface SaveStoreService {
-
-    @Headers("accept: application/json", "content-type: application/json")
     @POST("/stores")
     fun saveStore(
-        @Body postStoreReq: JSONObject
-//                  @Part imageFile : MultipartBody.Part
+        @Body postStoreReq: postStoreReq
     ):Call<SaveStoreResponse>
 }
 
+//    @Headers("accept: application/json", "content-type: application/json")
+//                  @Part imageFile : MultipartBody.Part
 
 //interface SaveStoreService {
 //    @Multipart

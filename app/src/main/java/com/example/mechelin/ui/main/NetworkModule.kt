@@ -11,6 +11,7 @@ import java.io.IOException
 object ApiClient {
         private const val BASE_URL = "https://dev.mechelin.shop"
 
+
         fun getRetrofit(): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)
