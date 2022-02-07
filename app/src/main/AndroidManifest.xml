@@ -42,6 +42,9 @@
         <activity android:name=".ui.savestore.PopupScoreActivity" android:theme="@style/Transparent"/>
         <activity android:name=".ui.mypage.MypageActivity"/>
         <activity android:name=".ui.resign.ResignActivity"/>
+        <activity android:name=".ui.signup.SignupActivity"/>
+        <activity android:name=".ui.signin.LoginActivity"/>
+        <activity android:name=".ui.signin.LoginmainActivity"/>
     </application>
 
 </manifest>

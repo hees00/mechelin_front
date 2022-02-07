@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:includeFontPadding="false"
-        android:hint="닉네임"
+        android:text="닉네임들"
         android:textStyle="normal"
         android:textSize="10sp"
         android:textColor="#66958383"
@@ -62,7 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:includeFontPadding="false"
-        android:hint="전화번호 입력"
+        android:hint="전화번호"
         android:textStyle="normal"
         android:textSize="10sp"
         android:textColor="#66958383"
@@ -70,6 +70,22 @@
         android:layout_marginTop="17dp"
         app:layout_constraintTop_toBottomOf="@+id/signup_des_nickname"
         app:layout_constraintStart_toStartOf="@id/signup_input_nickname"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="인증요청"
+        android:textColor="@color/main_color"
+        android:textSize="10sp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/signup_btn_var_background"
+        app:layout_constraintBottom_toTopOf="@id/signup_line_phone"
+        app:layout_constraintEnd_toEndOf="@id/signup_line_phone"/>
+
 
     <View
         android:id="@+id/signup_line_phone"
@@ -84,17 +100,58 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
-        android:id="@+id/signup_input_email"
+        android:id="@+id/signup_input_var"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:includeFontPadding="false"
-        android:hint="이메일 주소 입력"
+        android:hint="인증번호"
         android:textStyle="normal"
         android:textSize="10sp"
         android:textColor="#66958383"
         android:background="@null"
         android:layout_marginTop="28dp"
         app:layout_constraintTop_toBottomOf="@+id/signup_line_phone"
+        app:layout_constraintStart_toStartOf="@id/signup_input_nickname"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="인증확인"
+        android:textColor="@color/main_color"
+        android:textSize="10sp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/signup_btn_var_background"
+        app:layout_constraintBottom_toTopOf="@id/signup_line_var"
+        app:layout_constraintEnd_toEndOf="@id/signup_line_var"/>
+
+    <View
+        android:id="@+id/signup_line_var"
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:background="#26958383"
+        android:layout_marginTop="3dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/signup_input_var"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/signup_input_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:hint="이메일"
+        android:textStyle="normal"
+        android:textSize="10sp"
+        android:textColor="#66958383"
+        android:background="@null"
+        android:layout_marginTop="28dp"
+        app:layout_constraintTop_toBottomOf="@+id/signup_line_var"
         app:layout_constraintStart_toStartOf="@id/signup_input_nickname"/>
 
     <View
@@ -108,6 +165,7 @@
         app:layout_constraintTop_toBottomOf="@+id/signup_input_email"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
 
     <EditText
         android:id="@+id/signup_input_password"
@@ -153,7 +211,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:includeFontPadding="false"
-        android:hint="전화번호 입력"
+        android:hint="비밀번호 확인"
         android:textStyle="normal"
         android:textSize="10sp"
         android:textColor="#66958383"
