@@ -1,10 +1,12 @@
 package com.example.mechelin.ui.signin
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mechelin.databinding.ActivityLoginBinding
+import com.example.mechelin.ui.main.MainActivity
 import com.example.mechelin.ui.signup.SignupData
 import com.example.mechelin.ui.signup.SignupResult
 import com.example.mechelin.ui.signup.SignupService
@@ -48,6 +50,9 @@ class LoginActivity : AppCompatActivity() {
 
                     if (login?.code == 1000) {
                         Toast.makeText(getApplicationContext(),"로그인에 성공했습니다", Toast.LENGTH_LONG).show()
+                        val intent = Intent(this@LoginActivity,MainActivity::class.java)
+                        startActivity(intent)
+
                     }else{
                         Toast.makeText(getApplicationContext(),login?.message, Toast.LENGTH_LONG).show()
                     }

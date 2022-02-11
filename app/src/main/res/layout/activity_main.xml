@@ -24,6 +24,7 @@
         app:itemTextColor="@drawable/main_btm_color_selector"
         app:menu="@menu/main_bnv_menu"
         app:labelVisibilityMode="labeled"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

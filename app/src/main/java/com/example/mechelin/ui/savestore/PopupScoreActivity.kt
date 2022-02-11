@@ -1,4 +1,4 @@
-package com.example.mechelin.ui.main
+package com.example.mechelin.ui.savestore
 
 import android.app.Dialog
 import android.content.Context

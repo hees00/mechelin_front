@@ -12,29 +12,35 @@
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/drawable/main_btm_writing_selector.xml" value="0.1" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/drawable/mypage_card_round.xml" value="0.1" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/drawable/mypage_card_small.xml" value="0.15683760683760684" />
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/drawable/shadow_down.xml" value="0.144017094017094" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/font/font.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_login.xml" value="0.13076923076923078" />
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_login_main.xml" value="0.13076923076923078" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_mypage.xml" value="0.22" />
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_mypage.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_popup_score.xml" value="0.6462093862815884" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_resign.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_save_restaurant.xml" value="0.22" />
-        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_search_place.xml" value="0.41229656419529837" />
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_search.xml" value="0.1" />
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_search_place.xml" value="0.13228699551569506" />
+<<<<<<< HEAD
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_signup.xml" value="0.10666666666666667" />
+=======
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_signup.xml" value="0.3333333333333333" />
+>>>>>>> main
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_signup_term.xml" value="0.13076923076923078" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_welcome.xml" value="0.14358974358974358" />
-        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_writing.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/activity_writing.xml" value="0.2072155411655874" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/fragment_noncomplete.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/fragment_writing.xml" value="0.2601246105919003" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/item_mypage_card_small.xml" value="0.14358974358974358" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/item_recent_review.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/item_search_result.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/item_searching.xml" value="0.1" />
+        <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/layout/itrm_upload_picture.xml" value="0.1" />
         <entry key="..\:/Users/1p2h3/Desktop/mechelin/app/src/main/res/menu/main_bnv_menu.xml" value="0.1" />
-        <entry key="..\:/mechelin_5/app/src/main/res/drawable-v24/login_signup_btn_deactivate.xml" value="0.26979166666666665" />
-        <entry key="..\:/mechelin_5/app/src/main/res/drawable/signup_btn_var_background.xml" value="0.26979166666666665" />
-        <entry key="..\:/mechelin_5/app/src/main/res/layout/activity_login.xml" value="0.2342007434944238" />
-        <entry key="..\:/mechelin_5/app/src/main/res/layout/activity_login_main.xml" value="0.2" />
-        <entry key="..\:/mechelin_5/app/src/main/res/layout/activity_signup.xml" value="0.4" />
-        <entry key="..\:/mechelin_5/app/src/main/res/layout/activity_signup_term.xml" value="0.25364583333333335" />
         <entry key="app/src/main/res/drawable/main_btm_color_selector.xml" value="0.18125" />
         <entry key="app/src/main/res/drawable/main_btm_home_selector.xml" value="0.18125" />
         <entry key="app/src/main/res/drawable/main_btm_list_selector.xml" value="0.18125" />
@@ -64,7 +70,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.13333333333333333" />
+        <option name="scale" value="0.4466666666666667" />
       </ProjectState>
     </option>
   </component>

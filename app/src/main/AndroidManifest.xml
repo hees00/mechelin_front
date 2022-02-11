@@ -18,7 +18,9 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Mechelin"
+        android:requestLegacyExternalStorage="true"
         tools:replace="android:theme">
+
         <activity
             android:name="com.example.mechelin.ui.splash.SplashActivity"
             android:exported="true">
@@ -34,12 +36,17 @@
             android:exported="true">
         </activity>
         <activity android:name=".ui.search.SearchPlaceActivity"/>
-        <activity android:name=".ui.main.WritingActivity"
+        <activity android:name=".ui.savestore.WritingActivity"
                   android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".ui.main.SearchActivity"/>
-        <activity android:name=".ui.main.PopupScoreActivity" android:theme="@style/Transparent"/>
+        <activity android:name=".ui.savestore.PopupScoreActivity" android:theme="@style/Transparent"/>
+        <activity android:name=".ui.mypage.MypageActivity"/>
+        <activity android:name=".ui.resign.ResignActivity"/>
         <activity android:name=".ui.signup.SignupActivity"/>
         <activity android:name=".ui.signin.LoginActivity"/>
+        <activity android:name=".ui.signin.LoginmainActivity"/>
+        
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     </application>
 
 </manifest>

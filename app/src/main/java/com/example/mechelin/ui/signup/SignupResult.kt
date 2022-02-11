@@ -13,3 +13,18 @@ data class JwtResult(
     @SerializedName("result") val userIdx:Int,
     @SerializedName("jwt") val jwt:String
 )
+
+data class PhoneResult(
+    @SerializedName("result") val result : Result,
+    @SerializedName("isSuccess") val isSuccess: Boolean,
+    @SerializedName("code") val code: Int,
+    @SerializedName("message") val message: String
+)
+
+data class Result(
+    @SerializedName("requestId") val requestId:String,
+    @SerializedName("requestTime") val requestTime:String,
+    @SerializedName("statusCode") val statusCode:String,
+    @SerializedName("statusName") val statusName:String
+
+)

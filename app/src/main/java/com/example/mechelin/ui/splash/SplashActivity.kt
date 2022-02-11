@@ -10,6 +10,7 @@ import com.example.mechelin.ui.main.MainActivity
 import com.example.mechelin.ui.main.SearchActivity
 import com.example.mechelin.ui.signin.LoginActivity
 import com.example.mechelin.ui.signin.LoginResult
+import com.example.mechelin.ui.signin.LoginmainActivity
 import com.example.mechelin.ui.signup.SignupActivity
 
 class SplashActivity:AppCompatActivity() {
@@ -20,7 +21,7 @@ class SplashActivity:AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginmainActivity::class.java)
             startActivity(intent)
         }, 3000)
     }

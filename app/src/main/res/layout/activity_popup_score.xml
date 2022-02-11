@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#ffffff"
     app:cardCornerRadius="15dp"
-    tools:context=".ui.main.PopupScoreActivity"
+    tools:context=".ui.savestore.PopupScoreActivity"
     android:layout_marginHorizontal="50dp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

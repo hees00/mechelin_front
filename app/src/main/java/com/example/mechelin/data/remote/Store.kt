@@ -1,21 +1,18 @@
 package com.example.mechelin.data.remote
 
-data class Store(
-    var userIdx:Int,
-    var storeName:String,
-    var address: String,
-    var tel: String,
-    var x: Double,
-    var y: Double,
-    var starRate: Double,
-    var contents: String,
-    var tagName: ArrayList<String>,
-    var categoryIdx:Int,
-    var deliveryService: String
-)
+import com.google.gson.annotations.SerializedName
 
-data class Review(
-    var starRate: Double,
-    var contents: String,
-    var tagName: List<String>
+
+data class Store(
+    @SerializedName("userIdx") var userIdx:Int,
+    @SerializedName("categoryIdx")var categoryIdx:Int,
+    @SerializedName("deliveryService")var deliveryService: String,
+    @SerializedName("storeName")var storeName:String,
+    @SerializedName("address") var address: String,
+    @SerializedName("x")var x: Double,
+    @SerializedName("y")var y: Double,
+    @SerializedName("tel")var tel: String,
+    @SerializedName("tagName")var tagName: ArrayList<String>,
+    @SerializedName("starRate")var starRate: Double,
+    @SerializedName("contents")var contents: String
 )
