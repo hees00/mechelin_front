@@ -151,27 +151,17 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
         //완료 버튼 눌렀을 때
         binding.writingCompleteButtonTv.setOnClickListener {
 
-            val drawble = R.drawable.writingpage_rating_drag_3andhalf_xxhdpi
-
-            val image = File(imageList[0].toString())
+            val image = File(getPathFromUri(imageList[0]))
             Log.d("IMAGEPATH", image.toString())
-            val sendimage = drawble.toString().toRequestBody("image/jpeg".toMediaTypeOrNull())
+            val sendimage = image.toString().toRequestBody("image/jpeg".toMediaTypeOrNull())
             val multibody: MultipartBody.Part = MultipartBody.Part.createFormData("imageFile", "image.jpg",sendimage)
             val sendstore = store.toString().toRequestBody("application/json".toMediaTypeOrNull())
             WritingActivityService(this).tryWriting(store,multibody)
-
 
         }
 
         //사진 업로드
         binding.writingUploadPictureCv.setOnClickListener {
-//            uploadPhoto()
-//            val intent = Intent()
-//            intent.type = "image/*"
-//            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-//            intent.action = Intent.ACTION_GET_CONTENT
-//            getphotoLauncher.launch(intent)
-
             requeststorage()
 
         }
