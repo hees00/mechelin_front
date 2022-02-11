@@ -7,7 +7,6 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mechelin.databinding.ActivitySplashBinding
 import com.example.mechelin.ui.main.MainActivity
-import com.example.mechelin.ui.main.SearchActivity
 import com.example.mechelin.ui.signin.LoginActivity
 import com.example.mechelin.ui.signin.LoginResult
 import com.example.mechelin.ui.signin.LoginmainActivity

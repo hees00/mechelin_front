@@ -7,6 +7,7 @@ import com.example.mechelin.R
 import com.example.mechelin.databinding.ActivityMainBinding
 import com.example.mechelin.ui.mypage.MypageActivity
 import com.example.mechelin.ui.savestore.WritingActivity
+import com.example.mechelin.ui.main.search.SearchActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding

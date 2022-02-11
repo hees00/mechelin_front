@@ -3,12 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="src/main/res/drawable/list_elipse_selector.xml" value="0.19270833333333334" />
         <entry key="src/main/res/drawable/main_btm_color_selector.xml" value="0.11203703703703703" />
         <entry key="src/main/res/drawable/main_btm_list_selector.xml" value="0.11203703703703703" />
         <entry key="src/main/res/drawable/main_btm_writing_selector.xml" value="0.11203703703703703" />
         <entry key="src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="src/main/res/layout/activity_search.xml" value="0.13858695652173914" />
         <entry key="src/main/res/layout/activity_splash.xml" value="0.30932971014492755" />
-        <entry key="src/main/res/layout/fragment_home.xml" value="0.1796875" />
+        <entry key="src/main/res/layout/fragment_home.xml" value="0.700579301589917" />
+        <entry key="src/main/res/layout/fragment_list.xml" value="0.4737451788005143" />
+        <entry key="src/main/res/layout/fragment_searchword_hashtag.xml" value="0.328125" />
+        <entry key="src/main/res/layout/item_food.xml" value="0.36463257863780874" />
+        <entry key="src/main/res/layout/item_store_searching.xml" value="0.13858695652173914" />
         <entry key="src/main/res/menu/main_bnv_menu.xml" value="0.1" />
       </map>
     </option>

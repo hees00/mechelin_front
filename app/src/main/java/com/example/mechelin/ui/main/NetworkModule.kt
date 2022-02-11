@@ -3,7 +3,6 @@ package com.example.mechelin.ui.main
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
@@ -14,14 +13,9 @@ object ApiClient {
         private const val BASE_URL = "https://dev.mechelin.shop"
 
     val clientBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
-    val loggingInterceptor : HttpLoggingInterceptor  = HttpLoggingInterceptor()
-
 
 
         fun getRetrofit(): Retrofit {
-
-            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
-            clientBuilder.addInterceptor(loggingInterceptor)
 
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)

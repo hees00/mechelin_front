@@ -1,4 +1,4 @@
-package com.example.mechelin.ui.main
+package com.example.mechelin.ui.main.review
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,13 +10,13 @@ class HomeReviewRVAdator(private var reviewList: ArrayList<Review>): RecyclerVie
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): HomeReviewRVAdator.ViewHolder {
+    ): ViewHolder {
         val binding: ItemRecentReviewBinding = ItemRecentReviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: HomeReviewRVAdator.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(reviewList[position])
 
     }

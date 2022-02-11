@@ -38,7 +38,7 @@
         <activity android:name=".ui.search.SearchPlaceActivity"/>
         <activity android:name=".ui.savestore.WritingActivity"
                   android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".ui.main.SearchActivity"/>
+        <activity android:name=".ui.main.search.SearchActivity"/>
         <activity android:name=".ui.savestore.PopupScoreActivity" android:theme="@style/Transparent"/>
         <activity android:name=".ui.mypage.MypageActivity"/>
         <activity android:name=".ui.resign.ResignActivity"/>
