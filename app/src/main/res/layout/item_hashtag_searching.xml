@@ -11,19 +11,9 @@
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/item_searching_storeaddress_tv"
+        app:layout_constraintTop_toBottomOf="@id/item_hashtag_searching_reviewnum_tv"
         />
 
-    <ImageView
-        android:id="@+id/item_searching_place_iv"
-        android:layout_width="8dp"
-        android:layout_height="10dp"
-        android:src="@drawable/search_list_icon_gray"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
 
     <ImageView
         android:id="@+id/item_searching_hashtag_iv"
@@ -34,15 +24,15 @@
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"
         />
 
     <TextView
-        android:id="@+id/item_searching_storename_tv"
+        android:id="@+id/item_hashtag_searching_name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="가게이름"
+        android:text="해시태그이름"
         android:textColor="#766c6c"
+        android:textStyle="normal"
         android:textSize="10sp"
         android:fontFamily="@font/scdream4"
         android:layout_marginStart="30dp"
@@ -51,17 +41,18 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
+
     <TextView
-        android:id="@+id/item_searching_storeaddress_tv"
+        android:id="@+id/item_hashtag_searching_reviewnum_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="가게주소"
+        android:text="리뷰 수"
         android:textSize="8sp"
         android:textColor="#d5cece"
         android:fontFamily="@font/scdream3"
         android:layout_marginTop="3dp"
-        app:layout_constraintStart_toStartOf="@id/item_searching_storename_tv"
-        app:layout_constraintTop_toBottomOf="@id/item_searching_storename_tv"
+        app:layout_constraintStart_toStartOf="@id/item_hashtag_searching_name_tv"
+        app:layout_constraintTop_toBottomOf="@id/item_hashtag_searching_name_tv"
         />
 
 

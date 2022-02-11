@@ -4,8 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mechelin.R
-import com.example.mechelin.data.SearchStore
 import com.example.mechelin.databinding.ActivityMainBinding
+import com.example.mechelin.ui.main.search.SearchActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding

@@ -37,15 +37,20 @@
         <entry key="app/src/main/res/drawable/recent_review_background.xml" value="0.14907407407407408" />
         <entry key="app/src/main/res/drawable/searchbar_background.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/drawable/searching_item_background.xml" value="0.33897435897435896" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2341532486288143" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.29969247838425683" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.328125" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.55" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.5202818260640946" />
         <entry key="app/src/main/res/layout/fragment_list.xml" value="0.171875" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.6277060735404081" />
+        <entry key="app/src/main/res/layout/item_hashtag_searching.xml" value="1.0031645569620253" />
+        <entry key="app/src/main/res/layout/item_hastag_searching.xml" value="0.328125" />
         <entry key="app/src/main/res/layout/item_recent_review.xml" value="0.694560669456067" />
+        <entry key="app/src/main/res/layout/item_search_hastag_result.xml" value="0.25815217391304346" />
         <entry key="app/src/main/res/layout/item_search_result.xml" value="0.28351449275362317" />
-        <entry key="app/src/main/res/layout/item_searching.xml" value="0.2696994313566206" />
-        <entry key="app/src/main/res/menu/main_bnv_menu.xml" value="2.5" />
+        <entry key="app/src/main/res/layout/item_searching.xml" value="0.9955668108360247" />
+        <entry key="app/src/main/res/layout/item_store_searching.xml" value="0.2951582867783985" />
+        <entry key="app/src/main/res/menu/main_bnv_menu.xml" value="0.1" />
       </map>
     </option>
   </component>

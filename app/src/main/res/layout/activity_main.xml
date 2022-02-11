@@ -19,6 +19,7 @@
         android:id="@+id/main_bnv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFFFF"
         app:itemIconSize="24dp"
         app:itemIconTint="@drawable/main_btm_color_selector"
         app:itemTextColor="@drawable/main_btm_color_selector"

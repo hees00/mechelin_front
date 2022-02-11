@@ -1,14 +1,14 @@
 package com.example.mechelin.ui.main
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechelin.databinding.FragmentHomeBinding
+import com.example.mechelin.ui.main.review.HomeReviewRVAdator
+import com.example.mechelin.ui.main.review.ReviewResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,7 +35,7 @@ class HomeFragment: Fragment() {
     }
 
     private fun getReview() {
-        val reviewService = ApiClient.getRetrofit().create(ReviewInterface::class.java)
+        val reviewService = ApiClient.getRetrofit().create(ApiInterface::class.java)
 
         reviewService.getReview().enqueue(object : Callback<ReviewResponse> {
 
@@ -52,7 +52,7 @@ class HomeFragment: Fragment() {
 
 
                     when (resp.code) {
-                        1000 -> binding.homeRecentReviewRecyclerview.adapter = HomeReviewRVAdator(resp.result!!)
+                        1000 -> binding.homeRecentReviewRecyclerview.adapter = HomeReviewRVAdator(resp.result)
                         else -> Log.d(
                             "GETREVIEW/API-RESPONSE",
                             resp.code.toString() + ":" + resp.message

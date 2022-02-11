@@ -1,4 +1,4 @@
-package com.example.mechelin.ui.main
+package com.example.mechelin.ui.main.review
 
 import com.google.gson.annotations.SerializedName
 

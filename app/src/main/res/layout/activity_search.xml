@@ -71,13 +71,25 @@
         />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_store_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/item_searching"
+        tools:listitem="@layout/item_store_searching"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_bar_v"
         />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_hashtag_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_hashtag_searching"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_store_recyclerview"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
