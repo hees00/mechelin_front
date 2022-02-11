@@ -28,7 +28,7 @@
                     android:id="@+id/item_food_photo_03_iv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/logo_splash_login_sighup"
+                    android:src="@drawable/logo_splash_login_signup_xxhdpi"
                     />
             </androidx.cardview.widget.CardView>
 
@@ -36,7 +36,7 @@
                 android:id="@+id/item_food_starrate_03_iv"
                 android:layout_width="38dp"
                 android:layout_height="28dp"
-                android:src="@drawable/list_page_rating_4"
+                android:src="@drawable/listpage_rating_4_xxhdpi"
                 app:layout_constraintStart_toStartOf="@id/item_food_photo_03_cv"
                 app:layout_constraintTop_toBottomOf="@id/item_food_photo_03_cv"
                 />
