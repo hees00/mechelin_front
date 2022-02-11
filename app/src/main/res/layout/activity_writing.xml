@@ -335,6 +335,22 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="115dp"/>
+            <TextView
+                android:id="@+id/writing_score_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="별점 입력"
+                android:textColor="@color/main_color"
+                android:textSize="8sp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/signup_btn_var_background"
+                app:layout_constraintTop_toTopOf="@id/writing_score_iv"
+                app:layout_constraintBottom_toBottomOf="@id/writing_score_iv"
+                app:layout_constraintStart_toEndOf="@id/writing_score_iv"/>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/writing_upload_picture_cv"
@@ -349,12 +365,28 @@
                 android:textAlignment="center"
                 app:cardElevation="0dp"
                 >
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/writing_page_upload_photo_camera_alt"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="12dp"/>
+                    android:orientation="vertical">
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/writing_page_upload_photo_camera_alt"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="12dp"
+                        />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/writing_count_pictures_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0/3"
+                        android:textColor="@color/white"
+                        android:textSize="10dp"
+                        android:textAlignment="center"
+                        />
+                </LinearLayout>
+
 
             </androidx.cardview.widget.CardView>
 
@@ -377,7 +409,7 @@
                 android:layout_marginTop="12dp"
                 app:layout_constraintStart_toStartOf="@id/writing_upload_picture_cv"
                 app:layout_constraintTop_toBottomOf="@id/writing_upload_picture_cv"
-                android:textSize="8sp"
+                android:textSize="8dp"
                 android:fontFamily="@font/scdream4"
                 android:textColor="@color/mechelin_gray_font2"
                 android:background="@null"
@@ -409,6 +441,7 @@
                 android:layout_height="146dp"
                 android:hint="리뷰를 남겨주세요"
                 android:textSize="10sp"
+                android:maxLength="1000"
                 android:background="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/writing_tag_explain_tv"

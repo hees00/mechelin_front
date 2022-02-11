@@ -16,13 +16,3 @@ data class Store(
     @SerializedName("starRate")var starRate: Double,
     @SerializedName("contents")var contents: String
 )
-
-
-data class postStoreReq(
-    @SerializedName("postStoreReq") var postStoreReq: Store
-)
-data class Review(
-    var starRate: Double,
-    var contents: String,
-    var tagName: List<String>
-)

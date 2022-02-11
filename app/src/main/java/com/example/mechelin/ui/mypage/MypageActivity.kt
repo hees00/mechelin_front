@@ -2,6 +2,7 @@ package com.example.mechelin.ui.mypage
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mechelin.R
 import com.example.mechelin.databinding.ActivityMypageBinding
@@ -10,7 +11,7 @@ import com.example.mechelin.ui.resign.ResignActivity
 import com.example.mechelin.ui.savestore.WritingActivity
 
 
-class MypageActivity:AppCompatActivity() {
+class MypageActivity:AppCompatActivity(),MypageActivityView{
 
     lateinit var binding: ActivityMypageBinding
 
@@ -27,6 +28,20 @@ class MypageActivity:AppCompatActivity() {
             startActivity(intent)
         }
 
+        ShowProfieService(this).showProfile()
+
+    }
+
+    override fun onGetProfileSuccess(response: MypageResponse) {
+        Log.d("GETPROFILE",response.toString())
+        binding.mypageNicknameTv.text=response.result.nickName
+        binding.mypageEmailTv.text=response.result.email
+        binding.mypageTotalReviewContentTv.text=response.result.reviewCnt.toString()
+        binding.mypageSavePlaceContentTv.text=response.result.storeCnt.toString()
+    }
+
+    override fun onGetProfileFailure(message: String) {
+        Log.d("GETPROFILE",message)
     }
 
 }

@@ -51,7 +51,6 @@ android {
 
 dependencies {
 
-
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
@@ -79,5 +78,6 @@ dependencies {
     //custom rating bar
     implementation 'com.hedgehog.ratingbar:app:1.1.2'
 
-
+    //400error
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.1'
 }

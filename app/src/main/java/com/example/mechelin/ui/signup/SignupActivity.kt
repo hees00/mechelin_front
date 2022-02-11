@@ -20,7 +20,7 @@ class SignupActivity : AppCompatActivity() {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.signupBtnDeactivate.setOnClickListener{
+        binding.signupBtnDeactivate.setOnClickListener {
             val nickName = binding.signupInputNickname.getText().toString()
             val phoneNumber = binding.signupInputPhone.getText().toString()
             val password = binding.signupInputPassword.getText().toString()
@@ -33,20 +33,21 @@ class SignupActivity : AppCompatActivity() {
 
             var signupService: SignupService = retrofit.create(SignupService::class.java)
             var signup: SignupResult? = null
-            var signupData: SignupData = SignupData(nickName,email,password,phoneNumber)
+            var signupData: SignupData = SignupData(nickName, email, password, phoneNumber)
 
-            signupService.requestSignup(signupData).enqueue(object:Callback<SignupResult>{
+            signupService.requestSignup(signupData).enqueue(object : Callback<SignupResult> {
                 override fun onResponse(
                     call: Call<SignupResult>,
                     response: Response<SignupResult>
                 ) {
                     signup = response.body()
-                    Log.d("Signup",signup.toString())
-                    Log.d("Signup","msg: "+signup?.message)
-                    Log.d("Signup","code: "+signup?.code)
-                    Log.d("Signup","jwt: "+signup?.result?.jwt)
+                    Log.d("Signup", signup.toString())
+                    Log.d("Signup", "msg: " + signup?.message)
+                    Log.d("Signup", "code: " + signup?.code)
+                    Log.d("Signup", "jwt: " + signup?.result?.jwt)
                     var jwtToken = signup?.result?.jwt
-                    Toast.makeText(getApplicationContext(),"회원가입이 완료되었습니다",Toast.LENGTH_LONG).show()
+                    Toast.makeText(getApplicationContext(), "회원가입이 완료되었습니다", Toast.LENGTH_LONG)
+                        .show()
 
                     val sharedPreference = getSharedPreferences("jwt", 0)
                     val editor = sharedPreference.edit()
@@ -55,12 +56,12 @@ class SignupActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<SignupResult>, t: Throwable) {
-                    Log.d("Signup","msg: "+signup?.message)
-                    Log.d("Signup","code: "+signup?.code)
-                    Toast.makeText(getApplicationContext(),"회원가입이 실패했습니다",Toast.LENGTH_LONG).show()
+                    Log.d("Signup", "msg: " + signup?.message)
+                    Log.d("Signup", "code: " + signup?.code)
+                    Toast.makeText(getApplicationContext(), "회원가입이 실패했습니다", Toast.LENGTH_LONG)
+                        .show()
                 }
             })
         }
     }
-
 }

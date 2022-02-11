@@ -1,6 +1,8 @@
 package com.example.mechelin.ui.savestore
 
+import android.R.attr
 import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -13,18 +15,38 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.provider.MediaStore
 import android.view.LayoutInflater
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.net.toFile
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechelin.data.remote.SaveStoreResponse
-import com.example.mechelin.data.remote.postStoreReq
 import com.example.mechelin.ui.main.ApiClient
 import com.example.mechelin.ui.search.SearchPlaceActivity
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.*
+import java.net.URL
+import java.util.ArrayList
+import java.io.*
+import okhttp3.MultipartBody
+
+import java.io.IOException
+
+import java.io.InputStream
+import java.security.AccessController.getContext
+import java.io.FileNotFoundException
+
+import java.io.FileOutputStream
+
+import java.io.File
+import java.lang.Exception
+
 
 
 class WritingActivity: AppCompatActivity() ,WritingActivityView {
@@ -100,9 +122,11 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
         }
 
         //별점 받기
-        binding.writingScoreIv.setOnClickListener {
+        binding.writingScoreIv.setOnClickListener{
             getStarscore()
-
+        }
+        binding.writingScoreTv.setOnClickListener{
+            getStarscore()
         }
 
         //해시태그
@@ -126,9 +150,17 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
 
         //완료 버튼 눌렀을 때
         binding.writingCompleteButtonTv.setOnClickListener {
-            val post = postStoreReq(store)
-            WritingActivityService(this).tryWriting(post)
-            Log.d("saveplace", store.toString())
+
+            val drawble = R.drawable.writingpage_rating_drag_3andhalf_xxhdpi
+
+            val image = File(imageList[0].toString())
+            Log.d("IMAGEPATH", image.toString())
+            val sendimage = drawble.toString().toRequestBody("image/jpeg".toMediaTypeOrNull())
+            val multibody: MultipartBody.Part = MultipartBody.Part.createFormData("imageFile", "image.jpg",sendimage)
+            val sendstore = store.toString().toRequestBody("application/json".toMediaTypeOrNull())
+            WritingActivityService(this).tryWriting(store,multibody)
+
+
         }
 
         //사진 업로드
@@ -138,13 +170,11 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
 //            intent.type = "image/*"
 //            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
 //            intent.action = Intent.ACTION_GET_CONTENT
-//
 //            getphotoLauncher.launch(intent)
+
             requeststorage()
 
-
         }
-
 
     }
 
@@ -172,6 +202,7 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
             .setOnRatingChangeListener {
                 Log.d("starscore", it.toString())
                 store.starRate = it.toDouble()
+                binding.writingScoreTv.visibility=View.GONE
                 when (store.starRate) {
                     5.0 -> binding.writingScoreIv.setImageResource(R.drawable.writingpage_rating_drag_5_xxhdpi)
                     4.5 -> binding.writingScoreIv.setImageResource(R.drawable.writingpage_rating_drag_4andhalf_xxhdpi)
@@ -237,35 +268,28 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
             if (result.resultCode == RESULT_OK) {
                 if (result.data?.clipData != null) { // 사진 여러개 선택한 경우
                     val count = result.data!!.clipData!!.itemCount
-                    if (count > 10) {
-//                        showToast(getString(R.string.max_image_select_msg))
+                    if (count > 3) {
+                        Toast.makeText(getApplicationContext(),"사진은 최대 3장까지 첨부 가능합니다." , Toast.LENGTH_LONG).show()
                         return@registerForActivityResult
                     }
                     imageList.clear()
                     for (i in 0 until count) {
+                        val dataUri = result.data?.data
                         val imageUri = result.data?.clipData!!.getItemAt(i).uri
-                        imageList.add(imageUri)
+                        val add = imageList.add(imageUri)
+
                     }
                     showpictures()
-//                binding.writingUploadRv.visibility= View.VISIBLE
-//                binding.writingUploadIv.setImageURI(result.data?.clipData!!.getItemAt(0).uri)
-//                binding.writingUploadIv.setImageURI(imageList[0])
+                    binding.writingCountPicturesTv.text= count.toString() + "/3"
 
-//                    if (count > 1) {
-//                        binding.tvImageCount.visibility = View.VISIBLE
-//                        binding.tvImageCount.text = "외 " + (count - 1) + "장"
-//                    } else {
-//                        binding.tvImageCount.visibility = View.GONE
-//                    }
                 } else { // 단일 선택
                     result.data?.data?.let { uri ->
                         imageList.clear()
                         imageList.add(uri)
                         binding.writingUploadRv.visibility = View.VISIBLE
-//                    binding.writingUploadIv.setImageURI(uri)
+                        binding.writingCountPicturesTv.text= "1/3"
+
                         showpictures()
-                        Log.d("onephoto", uri.toString())
-//                        binding.tvImageCount.visibility = View.GONE
                     }
                 }
             }
@@ -279,62 +303,8 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
         getphotoLauncher.launch(intent)
     }
 
-    //식당 저장
-    fun savePlace() {
 
-//        val reviewService = ApiClient.getRetrofit().create(ReviewInterface::class.java)
-        //레트로핏 객체 만들기
-        val retrofit = ApiClient.getRetrofit().create(SaveStoreService::class.java)
-
-//            .addConverterFactory(GsonConverterFactory.create())
-
-//        val image= getPathFromUri(imageList[0])
-//        val sendimage = RequestBody.create(MediaType.parse("image/png"), image)
-//        val multibody : MultipartBody.Part = MultipartBody.Part.createFormData("imageFile","image.jpeg",sendimage)
-
-//        val sendstore = RequestBody.create(MediaType.parse("application/json"),store.toString())
-//        ss.toRequestBody(“application/json”.toMediaTypeOrNull())
-
-        /*val ss =jsonObject.toString()
-        Log.d("JSON",ss)
-        val sendstore = ss.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
-
-        Log.d("API-REQUEST",sendstore.toString())
-//        Log.d("API-REQUEST",multibody.toString())
-
-        retrofit.saveStore(store).enqueue(object : Callback<SaveStoreResponse>{
-
-            override fun onResponse(call: Call<SaveStoreResponse>, response: Response<SaveStoreResponse>) {
-                Log.d("REQUEST-SUCCESS","onresponse 들어옴")
-                Log.d("REQUEST-SUCCESS",response.toString())
-                val resp = response.body()
-                Log.d("writing-resp",resp!!.code.toString())
-                Log.d("writing-resp",resp.result.toString())
-                when(resp.code){
-//                    1000 -> finish()
-                    1000-> Log.d("SAVESUCCESS",resp.result.toString())
-                    2040,2041,2042,2043,2044 -> {
-                        AlertDialog.Builder(this@WritingActivity)
-                            .setMessage(resp.message)
-                            .create()
-                            .show()
-                    }
-                    400,500,2001,2002,2003,2010,4000 -> {
-                        AlertDialog.Builder(this@WritingActivity)
-                            .setMessage("식당 저장 및 리뷰 작성을 실패하였습니다.")
-                            .create()
-                            .show()
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<SaveStoreResponse>, t: Throwable) {
-                Log.e("SAVESTORE/API-ERROR", t.message.toString())
-            }
-
-        })*/
-    }
-
+    //이미지 경로 받아 오기
     fun getPathFromUri(uri: Uri?): String? {
         val cursor = contentResolver.query(uri!!, null, null, null, null)
         cursor!!.moveToNext()
@@ -343,9 +313,34 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
         return path
     }
 
+    // 이미지 uri를 절대 경로로 바꾸고 이미지
+    fun createCopyAndReturnRealPath(uri: Uri) :String? {
+        val context = applicationContext
+        val contentResolver = context.contentResolver ?: return null
+
+        // Create file path inside app's data dir
+        val filePath = (context.applicationInfo.dataDir + File.separator
+                + System.currentTimeMillis())
+        val file = File(filePath)
+        try {
+            val inputStream = contentResolver.openInputStream(uri) ?: return null
+            val outputStream: OutputStream = FileOutputStream(file)
+            val buf = ByteArray(1024)
+            var len: Int
+            while (inputStream.read(buf).also { len = it } > 0) outputStream.write(buf, 0, len)
+            outputStream.close()
+            inputStream.close()
+        } catch (e: IOException) {
+            e.printStackTrace()
+
+        }
+        return file.getAbsolutePath()
+    }
+
+
 
     private fun requeststorage() {
-        // 1. 위험권한(Camera) 권한 승인상태 가져오기
+        // 권한 승인상태 가져오기
         val cameraPermission = ContextCompat.checkSelfPermission(
             this,
             android.Manifest.permission.READ_EXTERNAL_STORAGE
@@ -360,7 +355,7 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
         }
     }
 
-    // 2. 권한 요청
+    // 권한 요청
     private fun requestPermission() {
         ActivityCompat.requestPermissions(
             this,
@@ -390,7 +385,7 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
     override fun onPostWritingSuccess(response: SaveStoreResponse) {
 
         Log.d("writing-resp", response.code.toString())
-        Log.d("writing-resp", response.result.toString())
+        Log.d("writing-resp", response.toString())
         when (response.code) {
 //                    1000 -> finish()
             1000 -> Log.d("SAVESUCCESS", response.result.toString())
@@ -412,6 +407,11 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
     override fun onPostWritingFailure(message: String) {
         Log.e("SAVESTORE/API-ERROR", message)
     }
+
+    fun photos(){
+
+    }
+
 }
 
 

@@ -45,6 +45,8 @@
         <activity android:name=".ui.signup.SignupActivity"/>
         <activity android:name=".ui.signin.LoginActivity"/>
         <activity android:name=".ui.signin.LoginmainActivity"/>
+        
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     </application>
 
 </manifest>

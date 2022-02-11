@@ -14,5 +14,6 @@ data class SaveStoreResponse(
 
 data class Result(
     @SerializedName("userIdx") val userIdx: Int,
-    @SerializedName("storeIdx") val storeIdx: Int
+    @SerializedName("storeIdx") val storeIdx: Int,
+    @SerializedName("fileNameList") val fileNameList : List<String>
 )
