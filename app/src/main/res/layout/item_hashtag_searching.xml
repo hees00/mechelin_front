@@ -19,7 +19,7 @@
         android:id="@+id/item_searching_hashtag_iv"
         android:layout_width="8dp"
         android:layout_height="10dp"
-        android:src="@drawable/search_hashtag_icon_gray"
+        android:src="@drawable/search_hashtagicon_gray_xxhdpi"
         android:layout_marginStart="18dp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"

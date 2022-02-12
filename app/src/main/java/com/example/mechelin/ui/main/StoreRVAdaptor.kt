@@ -36,7 +36,7 @@ class StoreRVAdaptor(private var Foodlist: ArrayList<StoreResult>): RecyclerView
 //                    ImageLoader.loadimage("https://d20aeo683mqd6t.cloudfront.net/ko/articles/title_images/000/039/143/medium/IMG_5649%E3%81%AE%E3%82%B3%E3%83%92%E3%82%9A%E3%83%BC.jpg?2019")
                 }
                 if (bitmap == null){
-                    binding.itemFoodPhoto03Iv.setImageResource(R.drawable.logo_main_01)
+                    binding.itemFoodPhoto03Iv.setImageResource(R.drawable.logo_login_home_xxhdpi)
                 }
                 else{
                     binding.itemFoodPhoto03Iv.setImageBitmap(bitmap)
@@ -44,16 +44,16 @@ class StoreRVAdaptor(private var Foodlist: ArrayList<StoreResult>): RecyclerView
             }
 
             when(storeresult.starRate){
-                5.0 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.home_rating_5)
-                4.5 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.home_rating_four_and_a_half)
-                4.0 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.home_rating_4)
-                3.5 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.home_rating_three_and_a_half)
-                3.0 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.home_rating_3)
-                2.5 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.home_rating_two_anf_a_half)
-                2.0 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.home_rating_2)
-                1.5 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.home_rating_one1and_a_half)
-                1.0 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.home_rating_1)
-                0.5 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.home_rating_half)
+                5.0 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.listpage_rating_5_xxhdpi)
+                4.5 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.listpage_rating_4andhalf_xxhdpi)
+                4.0 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.listpage_rating_4_xxhdpi)
+                3.5 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.listpage_rating_3andhalf_xxhdpi)
+                3.0 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.listpage_rating_3_xxhdpi)
+                2.5 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.listpage_rating_2andhalf_xxhdpi)
+                2.0 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.listpage_rating_2_xxhdpi)
+                1.5 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.listpage_rating_1andhalf_xxhdpi)
+                1.0 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.listpage_rating_1_xxhdpi)
+                0.5 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.listpage_rating_half_xxhdpi)
             }
         }
 
