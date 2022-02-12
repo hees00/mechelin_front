@@ -26,5 +26,4 @@ data class Result(
     @SerializedName("requestTime") val requestTime:String,
     @SerializedName("statusCode") val statusCode:String,
     @SerializedName("statusName") val statusName:String
-
 )

@@ -166,25 +166,31 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
 //            Log.d("IMAGEPATH", image.toString())
 //            val sendimage = image.toString().toRequestBody("image/jpeg".toMediaTypeOrNull())
 //            val multibody: MultipartBody.Part = MultipartBody.Part.createFormData("imageFile", "image.jpg",sendimage)
-            val images= arrayListOf<MultipartBody.Part?>()
+            val images = arrayListOf<MultipartBody.Part?>()
 
 
-            for (i in 0..(pathList.size-1)){
-                val uploadbitmap = Bitmap.createScaledBitmap(pathList[i],300,300, true)
+            for (i in 0..(pathList.size - 1)) {
+                val uploadbitmap = Bitmap.createScaledBitmap(pathList[i], 300, 300, true)
                 val stream = ByteArrayOutputStream()
                 uploadbitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
                 val byteArray = stream.toByteArray()
                 val sendimage = byteArray.toRequestBody("image/png".toMediaTypeOrNull())
-                val multibody: MultipartBody.Part = MultipartBody.Part.createFormData("imageFile", "image.png",sendimage)
+                val multibody: MultipartBody.Part =
+                    MultipartBody.Part.createFormData("imageFile", "image.png", sendimage)
                 images.add(multibody)
             }
 //            val requestBody: RequestBody = byteArray.toRequestBody("application/octet-stream".toMediaTypeOrNull())
 
 
             val sendstore = store.toString().toRequestBody("application/json".toMediaTypeOrNull())
-            WritingActivityService(this).tryWriting(store,images)
+            if (images.size == 0) {
+                Log.d("NO-PHOTO","사진 안보냄")
+                images.clear()
+                WritingActivityService(this).tryWriting(store, images)
+            } else {
+                WritingActivityService(this).tryWriting(store, images)
+            }
         }
-
         //사진 업로드
         binding.writingUploadPictureCv.setOnClickListener {
             requeststorage()
