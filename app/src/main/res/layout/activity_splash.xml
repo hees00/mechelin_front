@@ -9,7 +9,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="170dp"
-        android:src="@drawable/logo_splash_login_sighup"
+        android:src="@drawable/logo_splash_login_signup_xxhdpi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

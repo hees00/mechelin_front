@@ -30,16 +30,16 @@ class HomeReviewRVAdator(private var reviewList: ArrayList<Review>): RecyclerVie
             binding.itemReviewDateTv.text = review.createdAt
 
             when(review.starRate){
-                5.0 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_5)
-                4.5 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_four_and_a_half)
-                4.0 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_4)
-                3.5 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_three_and_a_half)
-                3.0 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_3)
-                2.5 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_two_anf_a_half)
-                2.0 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_2)
-                1.5 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_one1and_a_half)
-                1.0 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_1)
-                0.5 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_half)
+                5.0 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_5_xxhdpi)
+                4.5 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_4andhalf_xxhdpi)
+                4.0 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_4_xxhdpi)
+                3.5 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_3andhalf_xxhdpi)
+                3.0 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_3_xxhdpi)
+                2.5 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_2andhalf_xxhdpi)
+                2.0 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_2_xxhdpi)
+                1.5 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_1andhalf_xxhdpi)
+                1.0 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_1_xxhdpi)
+                0.5 -> binding.itemReviewScoreIv.setImageResource(R.drawable.home_rating_half_xxhdpi)
             }
         }
 

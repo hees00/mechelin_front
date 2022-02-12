@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/bottom_bar_pencil_icon_line" android:state_checked="false"/>
-    <item android:drawable="@drawable/bottom_bar_pencil_icon_red" android:state_checked="true"/>
+    <item android:drawable="@drawable/bottombar_pencilicon_line_xxhdpi" android:state_checked="false"/>
+    <item android:drawable="@drawable/bottombar_pencilicon_red_xxhdpi" android:state_checked="true"/>
 </selector>

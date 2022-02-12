@@ -35,7 +35,7 @@
         android:id="@+id/main_btn_search_iv"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@drawable/search_gray"
+        android:src="@drawable/search_gray_xxhdpi"
         android:layout_marginTop="27dp"
         android:layout_marginEnd="13dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -48,7 +48,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="13dp"
         android:layout_marginEnd="22dp"
-        android:src="@drawable/top_bar_mypage_gray"
+        android:src="@drawable/topbar_mypage_gray_xxhdpi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/main_btn_search_iv" />
 
