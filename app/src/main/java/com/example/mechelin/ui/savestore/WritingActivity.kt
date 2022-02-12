@@ -166,17 +166,23 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
 //            Log.d("IMAGEPATH", image.toString())
 //            val sendimage = image.toString().toRequestBody("image/jpeg".toMediaTypeOrNull())
 //            val multibody: MultipartBody.Part = MultipartBody.Part.createFormData("imageFile", "image.jpg",sendimage)
+            val images= arrayListOf<MultipartBody.Part?>()
 
-            val uploadbitmap = Bitmap.createScaledBitmap(pathList[0],300,300, true)
-            val stream = ByteArrayOutputStream()
-            uploadbitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
-            val byteArray = stream.toByteArray()
 
+            for (i in 0..(pathList.size-1)){
+                val uploadbitmap = Bitmap.createScaledBitmap(pathList[i],300,300, true)
+                val stream = ByteArrayOutputStream()
+                uploadbitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+                val byteArray = stream.toByteArray()
+                val sendimage = byteArray.toRequestBody("image/bmp".toMediaTypeOrNull())
+                val multibody: MultipartBody.Part = MultipartBody.Part.createFormData("imageFile", "image.bmp",sendimage)
+                images.add(multibody)
+            }
 //            val requestBody: RequestBody = byteArray.toRequestBody("application/octet-stream".toMediaTypeOrNull())
-            val sendimage = byteArray.toRequestBody("image/bmp".toMediaTypeOrNull())
-            val multibody: MultipartBody.Part = MultipartBody.Part.createFormData("imageFile", "image.bmp",sendimage)
+
+
             val sendstore = store.toString().toRequestBody("application/json".toMediaTypeOrNull())
-            WritingActivityService(this).tryWriting(store,multibody)
+            WritingActivityService(this).tryWriting(store,images)
         }
 
         //사진 업로드
@@ -319,45 +325,8 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
         intent.setType(MediaStore.Images.Media.CONTENT_TYPE)
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         intent.action = Intent.ACTION_GET_CONTENT
-//        val intent = Intent("android.intent.action.GET_CONTENT")
-//        intent.type = "image/*"
         getphotoLauncher.launch(intent)
     }
-
-
-    //이미지 경로 받아 오기
-    fun getPathFromUri(uri: Uri?): String? {
-        val cursor = contentResolver.query(uri!!, null, null, null, null)
-        cursor!!.moveToNext()
-        val path = cursor.getString(cursor.getColumnIndexOrThrow("_data"))
-        cursor.close()
-        return path
-    }
-
-    // 이미지 uri를 절대 경로로 바꾸고 이미지
-    fun createCopyAndReturnRealPath(uri: Uri) :String? {
-        val context = applicationContext
-        val contentResolver = context.contentResolver ?: return null
-
-        // Create file path inside app's data dir
-        val filePath = (context.applicationInfo.dataDir + File.separator
-                + System.currentTimeMillis())
-        val file = File(filePath)
-        try {
-            val inputStream = contentResolver.openInputStream(uri) ?: return null
-            val outputStream: OutputStream = FileOutputStream(file)
-            val buf = ByteArray(1024)
-            var len: Int
-            while (inputStream.read(buf).also { len = it } > 0) outputStream.write(buf, 0, len)
-            outputStream.close()
-            inputStream.close()
-        } catch (e: IOException) {
-            e.printStackTrace()
-
-        }
-        return file.getAbsolutePath()
-    }
-
 
 
     private fun requeststorage() {
@@ -408,8 +377,10 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
         Log.d("writing-resp", response.code.toString())
         Log.d("writing-resp", response.toString())
         when (response.code) {
-//                    1000 -> finish()
-            1000 -> Log.d("SAVESUCCESS", response.result.toString())
+            1000 -> {
+                    Log.d("SAVESUCCESS", response.result.toString())
+                    finish()
+            }
             2040, 2041, 2042, 2043, 2044 -> {
                 AlertDialog.Builder(this@WritingActivity)
                     .setMessage(response.message)

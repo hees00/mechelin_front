@@ -14,7 +14,7 @@ import retrofit2.Retrofit
 //MultipartBody.Part?
 class WritingActivityService (val view : WritingActivityView) {
 
-    fun tryWriting(postStoreReq: Store,image: MultipartBody.Part?) {
+    fun tryWriting(postStoreReq: Store,image: ArrayList<MultipartBody.Part?>) {
         val signInterface = ApiClient.getRetrofit().create(SaveStoreService::class.java)
         signInterface.saveStore(postStoreReq,image).enqueue(object :
             Callback<SaveStoreResponse> {

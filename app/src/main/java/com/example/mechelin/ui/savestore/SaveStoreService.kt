@@ -12,7 +12,7 @@ interface SaveStoreService {
     @POST("/stores")
     fun saveStore(
         @Part("postStoreReq") postStoreReq : Store,
-        @Part imageFile: MultipartBody.Part?
+        @Part imageFile: ArrayList<MultipartBody.Part?>
     ):Call<SaveStoreResponse>
 }
 
