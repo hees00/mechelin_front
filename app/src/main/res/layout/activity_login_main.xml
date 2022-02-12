@@ -8,7 +8,7 @@
         android:id="@+id/login_main_logo"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@drawable/logo_login_home"
+        android:src="@drawable/logo_login_home_xxhdpi"
         android:layout_marginTop="140dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

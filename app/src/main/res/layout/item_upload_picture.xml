@@ -8,7 +8,7 @@
         android:id="@+id/writing_upload_iv"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/logo_splash_login_sighup"
+        android:src="@drawable/logo_splash_login_signup_xxhdpi"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="5dp"

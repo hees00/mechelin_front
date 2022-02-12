@@ -51,8 +51,22 @@ class LoginActivity : AppCompatActivity() {
                     if (login?.code == 1000) {
                         Toast.makeText(getApplicationContext(),"로그인에 성공했습니다", Toast.LENGTH_LONG).show()
                         val intent = Intent(this@LoginActivity,MainActivity::class.java)
-                        startActivity(intent)
 
+                        Log.d("Signin", "UserIdx: " + login?.result?.userIdx)
+                        Log.d("Signin", "jwt: " + login?.result?.jwt)
+                        var jwtToken = login?.result?.jwt
+                        var userIdx = login?.result?.userIdx
+
+                        val sharedUser = getSharedPreferences("user", 0)
+                        val editor = sharedUser.edit()
+                        editor.putString("jwtToken", jwtToken)
+                        editor.putInt("userIdx",userIdx!!)
+                        editor.apply()
+
+                        Log.d("Signin", "SharedUserIdx: " + sharedUser.getInt("userIdx",-1))
+                        Log.d("Signin", "SharedUserjwt: " + sharedUser.getString("jwtToken","null"))
+
+                        startActivity(intent)
                     }else{
                         Toast.makeText(getApplicationContext(),login?.message, Toast.LENGTH_LONG).show()
                     }

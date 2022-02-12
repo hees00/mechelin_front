@@ -12,6 +12,7 @@ import com.example.mechelin.data.remote.Store
 import com.example.mechelin.databinding.ActivityWritingBinding
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.provider.MediaStore
 import android.view.LayoutInflater
@@ -32,7 +33,6 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.*
 import java.net.URL
-import java.util.ArrayList
 import java.io.*
 import okhttp3.MultipartBody
 
@@ -46,13 +46,19 @@ import java.io.FileOutputStream
 
 import java.io.File
 import java.lang.Exception
-
+import android.os.Environment
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
+import android.R.attr.data
+import android.database.Cursor
 
 
 class WritingActivity: AppCompatActivity() ,WritingActivityView {
 
 
     lateinit var binding: ActivityWritingBinding
+    val pathList = arrayListOf<String>()
 
     var store: Store = Store(1, 0, "N", "", "", 0.0, 0.0, "", arrayListOf<String>(), 0.0, "")
 
@@ -151,7 +157,7 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
         //완료 버튼 눌렀을 때
         binding.writingCompleteButtonTv.setOnClickListener {
 
-            val image = File(getPathFromUri(imageList[0]))
+            val image = File(pathList[0])
             Log.d("IMAGEPATH", image.toString())
             val sendimage = image.toString().toRequestBody("image/jpeg".toMediaTypeOrNull())
             val multibody: MultipartBody.Part = MultipartBody.Part.createFormData("imageFile", "image.jpg",sendimage)
@@ -255,7 +261,6 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
     // 위의 Activity를 실행한 이후 이벤트를 정의
     val getphotoLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == RESULT_OK) {
                 if (result.data?.clipData != null) { // 사진 여러개 선택한 경우
                     val count = result.data!!.clipData!!.itemCount
                     if (count > 3) {
@@ -283,13 +288,16 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
                     }
                 }
             }
-        }
+
+
 
     fun getpictures() {
-        val intent = Intent()
-        intent.setType(MediaStore.Images.Media.CONTENT_TYPE)
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-        intent.action = Intent.ACTION_GET_CONTENT
+//        val intent = Intent()
+//        intent.setType(MediaStore.Images.Media.CONTENT_TYPE)
+//        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+//        intent.action = Intent.ACTION_GET_CONTENT
+        val intent = Intent("android.intent.action.GET_CONTENT")
+        intent.type = "image/*"
         getphotoLauncher.launch(intent)
     }
 
@@ -396,10 +404,6 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
 
     override fun onPostWritingFailure(message: String) {
         Log.e("SAVESTORE/API-ERROR", message)
-    }
-
-    fun photos(){
-
     }
 
 }
