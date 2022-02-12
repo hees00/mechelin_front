@@ -1,6 +1,7 @@
 package com.example.mechelin.ui.savestore
 
 import android.R.attr
+import android.R.attr.*
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
@@ -50,15 +51,19 @@ import android.os.Environment
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
-import android.R.attr.data
 import android.database.Cursor
+import android.graphics.Bitmap
+import okhttp3.RequestBody
+
+
+
 
 
 class WritingActivity: AppCompatActivity() ,WritingActivityView {
 
 
     lateinit var binding: ActivityWritingBinding
-    val pathList = arrayListOf<String>()
+
 
     var store: Store = Store(1, 0, "N", "", "", 0.0, 0.0, "", arrayListOf<String>(), 0.0, "")
 
@@ -157,13 +162,21 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
         //완료 버튼 눌렀을 때
         binding.writingCompleteButtonTv.setOnClickListener {
 
-            val image = File(pathList[0])
-            Log.d("IMAGEPATH", image.toString())
-            val sendimage = image.toString().toRequestBody("image/jpeg".toMediaTypeOrNull())
-            val multibody: MultipartBody.Part = MultipartBody.Part.createFormData("imageFile", "image.jpg",sendimage)
+//            val image = File(pathList[0])
+//            Log.d("IMAGEPATH", image.toString())
+//            val sendimage = image.toString().toRequestBody("image/jpeg".toMediaTypeOrNull())
+//            val multibody: MultipartBody.Part = MultipartBody.Part.createFormData("imageFile", "image.jpg",sendimage)
+
+            val uploadbitmap = Bitmap.createScaledBitmap(pathList[0],300,300, true)
+            val stream = ByteArrayOutputStream()
+            uploadbitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+            val byteArray = stream.toByteArray()
+
+//            val requestBody: RequestBody = byteArray.toRequestBody("application/octet-stream".toMediaTypeOrNull())
+            val sendimage = byteArray.toRequestBody("image/bmp".toMediaTypeOrNull())
+            val multibody: MultipartBody.Part = MultipartBody.Part.createFormData("imageFile", "image.bmp",sendimage)
             val sendstore = store.toString().toRequestBody("application/json".toMediaTypeOrNull())
             WritingActivityService(this).tryWriting(store,multibody)
-
         }
 
         //사진 업로드
@@ -257,6 +270,7 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
 
     //사진 가져오기
     val imageList = arrayListOf<Uri>()
+    val pathList = arrayListOf<Bitmap>()
 
     // 위의 Activity를 실행한 이후 이벤트를 정의
     val getphotoLauncher =
@@ -273,6 +287,15 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
                         val imageUri = result.data?.clipData!!.getItemAt(i).uri
                         val add = imageList.add(imageUri)
 
+                        val inputStream = imageUri.let {
+                            contentResolver.openInputStream(
+                                it
+                            )
+                        }
+                        val bitmap = BitmapFactory.decodeStream(inputStream)
+                        inputStream!!.close()
+                        pathList.add(bitmap)
+                        Log.d("BITMAP",pathList.toString())
                     }
                     showpictures()
                     binding.writingCountPicturesTv.text= count.toString() + "/3"
@@ -292,12 +315,12 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
 
 
     fun getpictures() {
-//        val intent = Intent()
-//        intent.setType(MediaStore.Images.Media.CONTENT_TYPE)
-//        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-//        intent.action = Intent.ACTION_GET_CONTENT
-        val intent = Intent("android.intent.action.GET_CONTENT")
-        intent.type = "image/*"
+        val intent = Intent()
+        intent.setType(MediaStore.Images.Media.CONTENT_TYPE)
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+        intent.action = Intent.ACTION_GET_CONTENT
+//        val intent = Intent("android.intent.action.GET_CONTENT")
+//        intent.type = "image/*"
         getphotoLauncher.launch(intent)
     }
 

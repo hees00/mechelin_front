@@ -11,6 +11,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 
+//MultipartBody.Part?
 class WritingActivityService (val view : WritingActivityView) {
 
     fun tryWriting(postStoreReq: Store,image: MultipartBody.Part?) {
