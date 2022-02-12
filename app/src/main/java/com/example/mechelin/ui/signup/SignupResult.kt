@@ -10,7 +10,7 @@ data class SignupResult(
 )
 
 data class JwtResult(
-    @SerializedName("result") val userIdx:Int,
+    @SerializedName("userIdx") val userIdx:Int,
     @SerializedName("jwt") val jwt:String
 )
 

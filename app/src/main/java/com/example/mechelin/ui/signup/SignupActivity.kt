@@ -45,13 +45,19 @@ class SignupActivity : AppCompatActivity() {
                     Log.d("Signup", "msg: " + signup?.message)
                     Log.d("Signup", "code: " + signup?.code)
                     Log.d("Signup", "jwt: " + signup?.result?.jwt)
+                    Log.d("Signup", "userIdx: " + signup?.result?.userIdx)
+
                     var jwtToken = signup?.result?.jwt
+                    var userIdx = signup?.result?.userIdx
+
                     Toast.makeText(getApplicationContext(), "회원가입이 완료되었습니다", Toast.LENGTH_LONG)
                         .show()
 
-                    val sharedPreference = getSharedPreferences("jwt", 0)
-                    val editor = sharedPreference.edit()
+                    val sharedUser = getSharedPreferences("User", 0)
+                    val editor = sharedUser.edit()
+
                     editor.putString("jwtToken", jwtToken)
+                    editor.putInt("userIdx",userIdx!!)
                     editor.apply()
                 }
 
