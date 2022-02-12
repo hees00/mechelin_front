@@ -174,8 +174,8 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
                 val stream = ByteArrayOutputStream()
                 uploadbitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
                 val byteArray = stream.toByteArray()
-                val sendimage = byteArray.toRequestBody("image/bmp".toMediaTypeOrNull())
-                val multibody: MultipartBody.Part = MultipartBody.Part.createFormData("imageFile", "image.bmp",sendimage)
+                val sendimage = byteArray.toRequestBody("image/png".toMediaTypeOrNull())
+                val multibody: MultipartBody.Part = MultipartBody.Part.createFormData("imageFile", "image.png",sendimage)
                 images.add(multibody)
             }
 //            val requestBody: RequestBody = byteArray.toRequestBody("application/octet-stream".toMediaTypeOrNull())
@@ -288,6 +288,7 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
                         return@registerForActivityResult
                     }
                     imageList.clear()
+                    pathList.clear()
                     for (i in 0 until count) {
                         val dataUri = result.data?.data
                         val imageUri = result.data?.clipData!!.getItemAt(i).uri
@@ -309,7 +310,16 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
                 } else { // 단일 선택
                     result.data?.data?.let { uri ->
                         imageList.clear()
+                        pathList.clear()
                         imageList.add(uri)
+                        val inputStream = uri.let {
+                            contentResolver.openInputStream(
+                                it
+                            )
+                        }
+                        val bitmap = BitmapFactory.decodeStream(inputStream)
+                        inputStream!!.close()
+                        pathList.add(bitmap)
                         binding.writingUploadRv.visibility = View.VISIBLE
                         binding.writingCountPicturesTv.text= "1/3"
 
