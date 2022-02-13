@@ -1,10 +1,13 @@
 package com.example.mechelin.ui.main
 
+import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mechelin.R
 import com.example.mechelin.databinding.ItemFoodBinding
+import com.example.mechelin.ui.detail.DetailActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -55,6 +58,17 @@ class StoreRVAdaptor(private var Foodlist: ArrayList<StoreResult>): RecyclerView
                 1.0 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.listpage_rating_1_xxhdpi)
                 0.5 -> binding.itemFoodStarrate03Iv.setImageResource(R.drawable.listpage_rating_half_xxhdpi)
             }
+
+            //list Fragment -> Detail Activity 이동코드
+            val storeIdx = storeresult.storeIdx
+
+            binding.itemFoodPhoto03Iv.setOnClickListener(object : View.OnClickListener {
+                override fun onClick(v: View) {
+                    val intent = Intent(v.context, DetailActivity::class.java)
+                    intent.putExtra("storeIdx",storeIdx)
+                    v.context.startActivity(intent)
+                }
+            })
         }
 
     }
