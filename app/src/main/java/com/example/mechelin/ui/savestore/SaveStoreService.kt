@@ -16,15 +16,3 @@ interface SaveStoreService {
     ):Call<SaveStoreResponse>
 }
 
-//@Part imageFile : MultipartBody.Part
-
-//    @Headers("accept: application/json", "content-type: application/json")
-//                  @Part imageFile : MultipartBody.Part
-
-//interface SaveStoreService {
-//    @Multipart
-//    @POST("/stores")
-//    fun saveStore(@Part storeName: RequestBody,
-//                  @Part imageFile : MultipartBody.Part
-//    ):Call<SaveStoreResponse>
-//}

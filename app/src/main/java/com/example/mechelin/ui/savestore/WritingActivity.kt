@@ -179,7 +179,6 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
                     MultipartBody.Part.createFormData("imageFile", "image.png", sendimage)
                 images.add(multibody)
             }
-//            val requestBody: RequestBody = byteArray.toRequestBody("application/octet-stream".toMediaTypeOrNull())
 
 
             val sendstore = store.toString().toRequestBody("application/json".toMediaTypeOrNull())

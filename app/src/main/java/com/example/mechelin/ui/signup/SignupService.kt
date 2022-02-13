@@ -7,10 +7,16 @@ interface SignupService {
     @POST("/users/")
     fun requestSignup(
         @Body signupData: SignupData
-    ) : Call<SignupResult>
+    ): Call<SignupResult>
 
-   @POST("/auth/phonenumber")
-   fun authPhone(
-       @Body recipientPhoneNumber: String
-   ) : Call<PhoneResult>
+    @POST("/auth/phonenumber")
+    fun authPhone(
+        @Body recipientPhoneNumber: String
+    ): Call<PhoneResult>
+
+    @GET("/auth/")
+    fun confirmNum(
+        @Query("phoneNumber") phoneNumber: String,
+        @Query("certNumber") certNumber: String
+    ): Call<ConfrimNumResult>
 }

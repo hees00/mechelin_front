@@ -27,3 +27,10 @@ data class Result(
     @SerializedName("statusCode") val statusCode:String,
     @SerializedName("statusName") val statusName:String
 )
+
+data class ConfrimNumResult(
+    @SerializedName("result") val result : String,
+    @SerializedName("isSuccess") val isSuccess: Boolean,
+    @SerializedName("code") val code: Int,
+    @SerializedName("message") val message: String
+)

@@ -126,6 +126,7 @@
 
 
     <TextView
+        android:id="@+id/signup_request_num_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="인증요청"
@@ -168,6 +169,7 @@
         app:layout_constraintStart_toStartOf="@id/signup_input_nickname"/>
 
     <TextView
+        android:id="@+id/signup_check_num_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="인증확인"
