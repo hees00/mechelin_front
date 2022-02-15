@@ -6,16 +6,16 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiInterface {
-    @GET("/reviews/1")
+    @GET("/reviews/15")
     fun getReview(): Call<ReviewResponse>
 
-    @GET("/search/1")
+    @GET("/search/15")
     fun getSearchStoreResult(@Query("keyword") keyword: String): Call<SearchResponse>
 
-    @GET("/search/1")
+    @GET("/search/15")
     fun getSearchHashtagResult(@Query("keyword") keyword: String): Call<SearchResponse>
 
-    @GET("/stores/1/8")
+    @GET("/stores/15/8")
     fun getStore(@Query("starRating") starRating: String,
                 @Query("deliveryService") deliveryService: String,
                 @Query("page") page: Int,
