@@ -1,14 +1,19 @@
 package com.example.mechelin.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.mechelin.R
 import com.example.mechelin.databinding.FragmentHomeBinding
+import com.example.mechelin.ui.detail.DetailActivity
 import com.example.mechelin.ui.main.review.HomeReviewRVAdator
 import com.example.mechelin.ui.main.review.ReviewResponse
+import com.example.mechelin.ui.mypage.MypageActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,7 +29,53 @@ class HomeFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        val mActivity = activity as MainActivity
+
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        binding.homeKoreanIv.setOnClickListener {
+            saveCategoryIdx(requireContext(), "1")
+            mActivity.changeListFragment()
+        }
+
+        binding.homeWesternIv.setOnClickListener {
+            saveCategoryIdx(requireContext(), "2")
+            mActivity.changeListFragment()
+        }
+
+        binding.homeJapaneseIv.setOnClickListener {
+            saveCategoryIdx(requireContext(), "3")
+            mActivity.changeListFragment()
+        }
+
+        binding.homeChineseIv.setOnClickListener {
+            saveCategoryIdx(requireContext(), "4")
+            mActivity.changeListFragment()
+        }
+
+        binding.homeFlourIv.setOnClickListener {
+            saveCategoryIdx(requireContext(), "5")
+            mActivity.changeListFragment()
+        }
+
+        binding.homeBarIv.setOnClickListener {
+            saveCategoryIdx(requireContext(), "6")
+            mActivity.changeListFragment()
+        }
+
+        binding.homeDessertIv.setOnClickListener {
+            saveCategoryIdx(requireContext(), "7")
+            mActivity.changeListFragment()
+        }
+
+        binding.homeAllIv.setOnClickListener {
+            saveCategoryIdx(requireContext(), "8")
+            mActivity.changeListFragment()
+        }
+
+
+
+
 
         return binding.root
     }

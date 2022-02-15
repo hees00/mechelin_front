@@ -59,6 +59,7 @@ class LoginActivity : AppCompatActivity() {
 
                         saveJwt(this@LoginActivity, jwtToken.toString())
                         saveUserIdx(this@LoginActivity, userIdx!!.toInt())
+                        saveCategoryIdx(this@LoginActivity, "8")
 
                         Log.d("Signin", "SharedUserIdx: " + getUserIdx(this@LoginActivity))
                         Log.d("Signin", "SharedUserjwt: " + getJwt(this@LoginActivity))
