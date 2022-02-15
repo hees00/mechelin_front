@@ -65,7 +65,7 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
     lateinit var binding: ActivityWritingBinding
 
 
-    var store: Store = Store(1, 0, "N", "", "", 0.0, 0.0, "", arrayListOf<String>(), 0.0, "")
+    var store: Store = Store(15, 0, "N", "", "", 0.0, 0.0, "", arrayListOf<String>(), 0.0, "")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

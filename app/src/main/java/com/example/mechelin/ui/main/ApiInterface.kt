@@ -32,3 +32,4 @@ interface ApiInterface {
         @Query("page") page: Int,
         @Query("pageSize") pageSize: Int): Call<StoreResponse>
 }
+
