@@ -7,10 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.mechelin.R
 import com.example.mechelin.databinding.FragmentListBinding
-import com.example.mechelin.ui.main.review.HomeReviewRVAdator
-import com.example.mechelin.ui.main.review.ReviewResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,15 +1,10 @@
 package com.example.mechelin.ui.detail
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechelin.databinding.ActivityDetailBinding
-import com.example.mechelin.ui.main.MainActivity
-import com.example.mechelin.ui.main.StoreRVAdaptor
 import com.example.mechelin.ui.main.getJwt
 import retrofit2.Call
 import retrofit2.Callback

@@ -4,9 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.mechelin.R
 import com.example.mechelin.databinding.ActivityMypageBinding
 import com.example.mechelin.databinding.ActivityWritingBinding
+import com.example.mechelin.ui.main.getJwt
+import com.example.mechelin.ui.main.getUserIdx
 import com.example.mechelin.ui.resign.ResignActivity
 import com.example.mechelin.ui.savestore.WritingActivity
 
@@ -28,7 +31,9 @@ class MypageActivity:AppCompatActivity(),MypageActivityView{
             startActivity(intent)
         }
 
-        ShowProfieService(this).showProfile()
+        Log.d("GETUSERIDX",getUserIdx(this).toString())
+        val path = "/users/" + getUserIdx(this)
+        ShowProfieService(this).showProfile(path, getJwt(this))
 
     }
 

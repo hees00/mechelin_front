@@ -8,9 +8,9 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ShowProfieService(val view: MypageActivityView) {
-    fun showProfile(){
+    fun showProfile(path:String,token:String){
         val mypageinterface = ApiClient.getRetrofit().create(MypageService::class.java)
-        mypageinterface.getmypageInfo().enqueue(object :
+        mypageinterface.getmypageInfo(path,token).enqueue(object :
             Callback<MypageResponse> {
             override fun onResponse(
                 call: Call<MypageResponse>,

@@ -53,6 +53,8 @@ import java.util.*
 import kotlin.collections.ArrayList
 import android.database.Cursor
 import android.graphics.Bitmap
+import com.example.mechelin.ui.main.getJwt
+import com.example.mechelin.ui.main.getUserIdx
 import okhttp3.RequestBody
 
 
@@ -71,10 +73,11 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        store.userIdx= getUserIdx(this)
+
         binding = ActivityWritingBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
 
         //카테고리 선택
         binding.writingCategorySelectTb.setOnClickListener {
@@ -162,12 +165,8 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
         //완료 버튼 눌렀을 때
         binding.writingCompleteButtonTv.setOnClickListener {
 
-//            val image = File(pathList[0])
-//            Log.d("IMAGEPATH", image.toString())
-//            val sendimage = image.toString().toRequestBody("image/jpeg".toMediaTypeOrNull())
-//            val multibody: MultipartBody.Part = MultipartBody.Part.createFormData("imageFile", "image.jpg",sendimage)
             val images = arrayListOf<MultipartBody.Part?>()
-
+            val jwt= getJwt(this)
 
             for (i in 0..(pathList.size - 1)) {
                 val uploadbitmap = Bitmap.createScaledBitmap(pathList[i], 300, 300, true)
@@ -183,17 +182,15 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
 
             val sendstore = store.toString().toRequestBody("application/json".toMediaTypeOrNull())
             if (images.size == 0) {
-                Log.d("NO-PHOTO","사진 안보냄")
-                images.clear()
-                WritingActivityService(this).tryWriting(store, images)
+                Log.d("NO-PHOTO",images.toString())
+                WritingActivityService(this).tryWriting(store, images,jwt)
             } else {
-                WritingActivityService(this).tryWriting(store, images)
+                WritingActivityService(this).tryWriting(store, images,jwt)
             }
         }
         //사진 업로드
         binding.writingUploadPictureCv.setOnClickListener {
             requeststorage()
-
         }
 
     }
