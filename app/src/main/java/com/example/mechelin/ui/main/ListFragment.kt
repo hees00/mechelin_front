@@ -116,9 +116,11 @@ class ListFragment: Fragment() {
         deliveryServiceVal:String,
         pageVal:Int,
         pageSizeVal:Int) {
-        val storeService = ApiClient.getRetrofit().create(ApiInterface::class.java)
 
-        storeService.getStore(starRatingVal, deliveryServiceVal, pageVal, pageSizeVal).enqueue(object : Callback<StoreResponse> {
+        val storeService = ApiClient.getRetrofit().create(ApiInterface::class.java)
+        val fullUrl = "/stores/" + getUserIdx(requireContext()) + "/8"
+
+        storeService.getStore(fullUrl, getJwt(requireContext()), starRatingVal, deliveryServiceVal, pageVal, pageSizeVal).enqueue(object : Callback<StoreResponse> {
 
             override fun onResponse(
                 call: Call<StoreResponse>,

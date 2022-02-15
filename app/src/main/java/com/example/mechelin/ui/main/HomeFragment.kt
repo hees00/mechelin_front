@@ -35,9 +35,10 @@ class HomeFragment: Fragment() {
     }
 
     private fun getReview() {
+        val fullUrl = "/reviews/" + getUserIdx(requireContext())
         val reviewService = ApiClient.getRetrofit().create(ApiInterface::class.java)
 
-        reviewService.getReview().enqueue(object : Callback<ReviewResponse> {
+        reviewService.getReview(fullUrl, getJwt(requireContext())).enqueue(object : Callback<ReviewResponse> {
 
             override fun onResponse(
                 call: Call<ReviewResponse>,

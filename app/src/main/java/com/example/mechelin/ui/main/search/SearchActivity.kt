@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechelin.databinding.ActivitySearchBinding
 import com.example.mechelin.ui.main.ApiClient
 import com.example.mechelin.ui.main.ApiInterface
+import com.example.mechelin.ui.main.getJwt
+import com.example.mechelin.ui.main.getUserIdx
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -50,9 +52,11 @@ class SearchActivity: AppCompatActivity() {
     }
 
     private fun getSearchStoreResult() {
-        val apiService = ApiClient.getRetrofit().create(ApiInterface::class.java)
 
-        apiService.getSearchStoreResult(binding.searchSearchingEt.text.toString()).enqueue(object : Callback<SearchResponse> {
+        val apiService = ApiClient.getRetrofit().create(ApiInterface::class.java)
+        val fullUrl = "/search/" + getUserIdx(this@SearchActivity)
+
+        apiService.getSearchStoreResult(fullUrl, getJwt(this), binding.searchSearchingEt.text.toString()).enqueue(object : Callback<SearchResponse> {
 
             override fun onResponse(
                 call: Call<SearchResponse>,
@@ -67,8 +71,13 @@ class SearchActivity: AppCompatActivity() {
 
 
                     when (resp.code) {
-                        1000 -> {binding.searchStoreRecyclerview.adapter = SearchStoreRVAdaptor(resp.result.store)
-                            binding.searchStoreRecyclerview.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
+                        1000 -> {
+                            if (resp.result.store == null){
+                            }
+                            else {
+                                binding.searchStoreRecyclerview.adapter = SearchStoreRVAdaptor(resp.result.store)
+                                binding.searchStoreRecyclerview.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
+                            }
                         }
                         else -> Log.d(
                             "GETSTORE/API-RESPONSE",
@@ -86,11 +95,13 @@ class SearchActivity: AppCompatActivity() {
     }
 
     private fun getSearchHashtagResult() {
+
         val apiService = ApiClient.getRetrofit().create(ApiInterface::class.java)
+        val fullUrl = "/search/" + getUserIdx(this@SearchActivity)
 
-        apiService.getSearchHashtagResult(binding.searchSearchingEt.text.toString()).enqueue(object : Callback<SearchResponse> {
+        apiService.getSearchHashtagResult(fullUrl, getJwt(this), binding.searchSearchingEt.text.toString()).enqueue(object : Callback<SearchResponse> {
 
-            override fun onResponse(
+                override fun onResponse(
                 call: Call<SearchResponse>,
                 response: Response<SearchResponse>
             ) {
@@ -103,8 +114,12 @@ class SearchActivity: AppCompatActivity() {
 
 
                     when (resp.code) {
-                        1000 -> {binding.searchHashtagRecyclerview.adapter = SearchHashtagRVAdaptor(resp.result.hashtag)
-                            binding.searchHashtagRecyclerview.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
+                        1000 -> {
+                            if (resp.result.hashtag == null) {
+                            } else {
+                                binding.searchHashtagRecyclerview.adapter = SearchHashtagRVAdaptor(resp.result.hashtag)
+                                binding.searchHashtagRecyclerview.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
+                            }
                         }
                         else -> Log.d(
                             "GETHASHTAG/API-RESPONSE",
