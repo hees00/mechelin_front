@@ -74,4 +74,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun changeListFragment() {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.main_frm, ListFragment())
+            .commit()
+    }
+
 }

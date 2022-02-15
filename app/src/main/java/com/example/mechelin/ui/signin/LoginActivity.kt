@@ -6,7 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mechelin.databinding.ActivityLoginBinding
-import com.example.mechelin.ui.main.MainActivity
+import com.example.mechelin.ui.main.*
 import com.example.mechelin.ui.signup.SignupData
 import com.example.mechelin.ui.signup.SignupResult
 import com.example.mechelin.ui.signup.SignupService
@@ -57,14 +57,21 @@ class LoginActivity : AppCompatActivity() {
                         var jwtToken = login?.result?.jwt
                         var userIdx = login?.result?.userIdx
 
-                        val sharedUser = getSharedPreferences("user", 0)
-                        val editor = sharedUser.edit()
-                        editor.putString("jwtToken", jwtToken)
-                        editor.putInt("userIdx",userIdx!!)
-                        editor.apply()
+                        saveJwt(this@LoginActivity, jwtToken.toString())
+                        saveUserIdx(this@LoginActivity, userIdx!!.toInt())
+                        saveCategoryIdx(this@LoginActivity, "8")
 
-                        Log.d("Signin", "SharedUserIdx: " + sharedUser.getInt("userIdx",-1))
-                        Log.d("Signin", "SharedUserjwt: " + sharedUser.getString("jwtToken","null"))
+                        Log.d("Signin", "SharedUserIdx: " + getUserIdx(this@LoginActivity))
+                        Log.d("Signin", "SharedUserjwt: " + getJwt(this@LoginActivity))
+
+//                        val sharedUser = getSharedPreferences("user", 0)
+//                        val editor = sharedUser.edit()
+//                        editor.putString("jwtToken", jwtToken)
+//                        editor.putInt("userIdx",userIdx!!)
+//                        editor.apply()
+//
+//                        Log.d("Signin", "SharedUserIdx: " + sharedUser.getInt("userIdx",-1))
+//                        Log.d("Signin", "SharedUserjwt: " + sharedUser.getString("jwtToken","null"))
 
                         startActivity(intent)
                     }else{

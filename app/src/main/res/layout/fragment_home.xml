@@ -147,7 +147,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/home_school_iv"
+                android:id="@+id/home_flour_iv"
                 android:layout_width="38dp"
                 android:layout_height="42dp"
                 android:src="@drawable/flourbasedfood_home_xxhdpi"
@@ -164,9 +164,9 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="6dp"
                 android:fontFamily="@font/scdream4"
-                app:layout_constraintStart_toStartOf="@id/home_school_iv"
-                app:layout_constraintEnd_toEndOf="@id/home_school_iv"
-                app:layout_constraintTop_toBottomOf="@id/home_school_iv"
+                app:layout_constraintStart_toStartOf="@id/home_flour_iv"
+                app:layout_constraintEnd_toEndOf="@id/home_flour_iv"
+                app:layout_constraintTop_toBottomOf="@id/home_flour_iv"
                 />
 
             <ImageView
@@ -176,7 +176,7 @@
                 android:layout_marginTop="4dp"
                 android:src="@drawable/pub_home_xxhdpi"
                 android:layout_marginStart="40dp"
-                app:layout_constraintStart_toEndOf="@id/home_school_iv"
+                app:layout_constraintStart_toEndOf="@id/home_flour_iv"
                 app:layout_constraintTop_toTopOf="parent"
                 />
 

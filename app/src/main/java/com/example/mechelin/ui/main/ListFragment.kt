@@ -21,6 +21,7 @@ class ListFragment: Fragment() {
     private var starRatingYN: String = "Y"
     private var deliveryServiceYN: String = "N"
     private lateinit var storeresult: StoreResult
+    //private var categoryIdx = getCategoryIdx(requireContext())
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,18 +29,10 @@ class ListFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        var categoryIdx = getCategoryIdx(requireContext())
+
         binding = FragmentListBinding.inflate(layoutInflater)
 
-//        when(storeresult.storeIdx){
-//            1 -> binding.listCategoryIv.setImageResource(R.drawable.korean_food_writing_page_choose_category)
-//            2 -> binding.listCategoryIv.setImageResource(R.drawable.western_food_chosen_category_and_list_top_bar)
-//            3 -> binding.listCategoryIv.setImageResource(R.drawable.japanese_food_chosen_category_and_list_top_bar)
-//            4 -> binding.listCategoryIv.setImageResource(R.drawable.chinese_food_chosen_category_and_list_top_bar)
-//            5 -> binding.listCategoryIv.setImageResource(R.drawable.flour_based_food_chosen_category_and_list_top_bar)
-//            6 -> binding.listCategoryIv.setImageResource(R.drawable.pub_chosen_category_and_list_top_bar)
-//            7 -> binding.listCategoryIv.setImageResource(R.drawable.dessert_chosen_category_and_list_top_bar)
-//            8 -> binding.listCategoryIv.setImageResource(R.drawable.all_home)
-//        }
 
         binding.listNewGrayTv.setOnClickListener {
             binding.listNewGrayTv.visibility = View.GONE
@@ -51,7 +44,7 @@ class ListFragment: Fragment() {
             binding.listStarrateEclipseRedIv.visibility = View.GONE
             binding.listStarrateEclipseGrayIv.visibility = View.VISIBLE
             starRatingYN = "N"
-            getStore(starRatingYN, deliveryServiceYN, 1, 100)
+            getStore(categoryIdx, starRatingYN, deliveryServiceYN, 1, 100)
         }
 
         binding.listStarrateGrayTv.setOnClickListener {
@@ -64,7 +57,7 @@ class ListFragment: Fragment() {
             binding.listStarrateEclipseRedIv.visibility = View.VISIBLE
             binding.listStarrateEclipseGrayIv.visibility = View.GONE
             starRatingYN = "Y"
-            getStore(starRatingYN, deliveryServiceYN, 1, 100)
+            getStore(categoryIdx, starRatingYN, deliveryServiceYN, 1, 100)
         }
 
 //        binding.listStarrateGrayTv.setOnClickListener {
@@ -88,7 +81,7 @@ class ListFragment: Fragment() {
             binding.listDeliveryGrayIv.visibility = View.GONE
             binding.listDeliveryRedIv.visibility = View.VISIBLE
             deliveryServiceYN = "Y"
-            getStore(starRatingYN, deliveryServiceYN, 1, 100)
+            getStore(categoryIdx, starRatingYN, deliveryServiceYN, 1, 100)
         }
 
         binding.listDeliveryRedIv.setOnClickListener {
@@ -97,7 +90,7 @@ class ListFragment: Fragment() {
             binding.listDeliveryGrayIv.visibility = View.VISIBLE
             binding.listDeliveryRedIv.visibility = View.GONE
             deliveryServiceYN = "N"
-            getStore(starRatingYN, deliveryServiceYN, 1, 100)
+            getStore(categoryIdx, starRatingYN, deliveryServiceYN, 1, 100)
         }
 
 //        val foodRVAdator = StoreRVAdaptor(storeDatas)
@@ -108,17 +101,21 @@ class ListFragment: Fragment() {
 
     override fun onStart() {
         super.onStart()
-        getStore(starRatingYN, deliveryServiceYN, 1, 100)
+        var categoryIdx = getCategoryIdx(requireContext())
+        getStore(categoryIdx, starRatingYN, deliveryServiceYN, 1, 100)
     }
 
     private fun getStore(
+        categoryIdx: String,
         starRatingVal:String,
         deliveryServiceVal:String,
         pageVal:Int,
         pageSizeVal:Int) {
-        val storeService = ApiClient.getRetrofit().create(ApiInterface::class.java)
 
-        storeService.getStore(starRatingVal, deliveryServiceVal, pageVal, pageSizeVal).enqueue(object : Callback<StoreResponse> {
+        val storeService = ApiClient.getRetrofit().create(ApiInterface::class.java)
+        val fullUrl = "/stores/" + getUserIdx(requireContext()) +"/" + categoryIdx
+
+        storeService.getStore(fullUrl, getJwt(requireContext()), starRatingVal, deliveryServiceVal, pageVal, pageSizeVal).enqueue(object : Callback<StoreResponse> {
 
             override fun onResponse(
                 call: Call<StoreResponse>,

@@ -1,9 +1,12 @@
 package com.example.mechelin.ui.main.search
 
+import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mechelin.databinding.ItemStoreSearchingBinding
+import com.example.mechelin.ui.detail.DetailActivity
 
 class SearchStoreRVAdaptor(private var storeList: ArrayList<Store>): RecyclerView.Adapter<SearchStoreRVAdaptor.ViewHolder>() {
 
@@ -23,6 +26,16 @@ class SearchStoreRVAdaptor(private var storeList: ArrayList<Store>): RecyclerVie
         fun bind(store: Store){
             binding.itemStoreSearchingStorenameTv.text = store.storeName
             binding.itemStoreSearchingStoreaddressTv.text = store.address
+
+            val storeIdx = store.storeIdx
+
+            binding.itemStoreSearchingStorenameTv.setOnClickListener(object : View.OnClickListener {
+                override fun onClick(v: View) {
+                    val intent = Intent(v.context, DetailActivity::class.java)
+                    intent.putExtra("storeIdx",storeIdx)
+                    v.context.startActivity(intent)
+                }
+            })
         }
     }
 }
