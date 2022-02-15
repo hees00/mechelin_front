@@ -6,18 +6,29 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiInterface {
-    @GET("/reviews/15")
-    fun getReview(): Call<ReviewResponse>
 
-    @GET("/search/15")
-    fun getSearchStoreResult(@Query("keyword") keyword: String): Call<SearchResponse>
+    @GET("{fullUrl}")
+    fun getReview(@Path("fullUrl", encoded = true) fullUrl: String,
+                  @Header("X-ACCESS-TOKEN") token: String?): Call<ReviewResponse>
 
-    @GET("/search/15")
-    fun getSearchHashtagResult(@Query("keyword") keyword: String): Call<SearchResponse>
+    @GET("{fullUrl}")
+    fun getSearchStoreResult(
+        @Path("fullUrl", encoded = true) fullUrl: String,
+        @Header("X-ACCESS-TOKEN") token: String?,
+        @Query("keyword") keyword: String): Call<SearchResponse>
 
-    @GET("/stores/15/8")
-    fun getStore(@Query("starRating") starRating: String,
-                @Query("deliveryService") deliveryService: String,
-                @Query("page") page: Int,
-                @Query("pageSize") pageSize: Int): Call<StoreResponse>
+    @GET("{fullUrl}")
+    fun getSearchHashtagResult(
+        @Path("fullUrl", encoded = true) fullUrl: String,
+        @Header("X-ACCESS-TOKEN") token: String?,
+        @Query("keyword") keyword: String): Call<SearchResponse>
+
+    @GET("{fullUrl}")
+    fun getStore(
+        @Path("fullUrl", encoded = true) fullUrl: String,
+        @Header("X-ACCESS-TOKEN") token: String?,
+        @Query("starRating") starRating: String,
+        @Query("deliveryService") deliveryService: String,
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int): Call<StoreResponse>
 }
