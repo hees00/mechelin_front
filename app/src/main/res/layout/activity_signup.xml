@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:includeFontPadding="false"
-        android:text="닉네임들"
+        android:hint="닉네임들"
         android:textStyle="normal"
         android:textSize="10sp"
         android:textColor="#66958383"

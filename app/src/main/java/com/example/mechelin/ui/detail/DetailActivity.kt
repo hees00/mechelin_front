@@ -2,14 +2,15 @@ package com.example.mechelin.ui.detail
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mechelin.data.remote.SaveStoreResponse
 import com.example.mechelin.databinding.ActivityDetailBinding
+import com.example.mechelin.ui.main.ApiClient
 import com.example.mechelin.ui.main.getJwt
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
+import com.example.mechelin.ui.main.getUserIdx
+import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.NullPointerException
 
@@ -33,12 +34,12 @@ class DetailActivity : AppCompatActivity() {
         val shared = getSharedPreferences("user",0)
 //        val jwtToken = shared.getString("jwtToken","no-token")
         //val jwtToken = "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NDQ3MDYwMzEsImV4cCI6MTY0NjE3NzI2MH0.jkzcRkhrtLb-q5RGa0xJALSZAYMQMNCUGca5X4krIhk"
-        val jwtToken = getJwt(this@DetailActivity)
-
-        val userIdx = shared.getInt("userIdx",-1)
+//        val jwtToken = getJwt(this@DetailActivity)
+//
+//        val userIdx = shared.getInt("userIdx",-1)
         val storeIdx = intent.getIntExtra("storeIdx",1)
 
-        postService.getReviews(jwtToken!!, userIdx,storeIdx,1,3).enqueue(object : Callback<PostResult> {
+        postService.getReviews(getJwt(this), getUserIdx(this),storeIdx,1,3).enqueue(object : Callback<PostResult> {
             override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
                 post = response.body()
 
@@ -47,7 +48,9 @@ class DetailActivity : AppCompatActivity() {
                     binding.storeInfoAvgPoint.setText("평균"+post?.result?.storeInformation?.averageStarRate.toString())
                     binding.storeInfoStoreAddress.setText(post?.result?.storeInformation?.storeAddress)
                     binding.storeInfoStoreNumber.setText(post?.result?.storeInformation?.storeTel)
-                    binding.postRecyclerview.adapter = PostRVAdapter(post?.result?.reviewList!!)
+                    binding.postRecyclerview.adapter = PostRVAdapter(post?.result?.reviewList!!,itemClickedListener={
+                        delete(it)
+                    })
                     binding.postRecyclerview.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
                 } catch (e: NullPointerException){
                     binding.storInfoStoreName.setText(post?.result?.storeInformation?.storeName)
@@ -69,7 +72,33 @@ class DetailActivity : AppCompatActivity() {
             override fun onFailure(call: Call<PostResult>, t: Throwable) {
                 Log.d("Detail", t.message.toString())
             }
+
         })
 
+    }
+    fun delete(storeIdx:Int){
+        ApiClient.settoken(getJwt(this))
+        val deleteinterface = ApiClient.getRetrofit().create(PostService::class.java)
+        deleteinterface.DeleteReview(getUserIdx(this),storeIdx).enqueue(object :
+            Callback<PostResult> {
+            override fun onResponse(call: Call<PostResult>, response: Response<PostResult>) {
+                Log.d("DELETE-SUCCESS", "onresponse 들어옴")
+                Log.d("DELETE-SUCCESS", response.toString())
+                if (response.code()==200){
+                    val resp=response.body()
+                    when(resp?.code){
+                        1000 -> Toast.makeText(getApplicationContext(), "리뷰가 삭제되었습니다", Toast.LENGTH_LONG)
+
+                        else -> Toast.makeText(getApplicationContext(), "다시 시도해주세요", Toast.LENGTH_LONG)
+                    }
+                }
+
+
+            }
+
+            override fun onFailure(call: Call<PostResult>, t: Throwable) {
+                Log.d("API_FAILURE",t.message.toString() )
+            }
+        })
     }
 }

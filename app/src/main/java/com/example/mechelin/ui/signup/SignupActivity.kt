@@ -23,7 +23,15 @@ class SignupActivity : AppCompatActivity(),PhoneConfirmView {
         setContentView(binding.root)
 
         binding.signupRequestNumTv.setOnClickListener {
-            phonecofirm()
+            if (binding.signupInputPhone1.text.equals(null)||binding.signupInputPhone2.text.equals(null)||binding.signupInputPhone3.text.equals(null)){
+                Toast.makeText(
+                    getApplicationContext(),
+                    "전화번호를 입력해주세요",
+                    Toast.LENGTH_LONG)
+            }
+            else {
+                phonecofirm()
+            }
         }
         binding.signupCheckNumTv.setOnClickListener {
             checkconfirm(binding.signupInputVar.text.toString())
@@ -166,15 +174,20 @@ class SignupActivity : AppCompatActivity(),PhoneConfirmView {
     private fun timerstart() {
         var time = 18000
         val timerTask = kotlin.concurrent.timer(period = 10) {	// timer() 호출
-            time--	// period=10, 0.01초마다 time를 1씩 증가
-            val totalsec = time / 100	// time/100, 나눗셈의 몫 (초 부분)
-            val min = totalsec / 60	// time%100, 나눗셈의 나머지 (밀리초 부분)
-            val sec= totalsec%60
+            if (time <= 0){
+                binding.signupTimerTv.text="인증 가능 시간을 초과하였습니다"
+                }
+            else {
+                time--    // period=10, 0.01초마다 time를 1씩 증가
+                val totalsec = time / 100    // time/100, 나눗셈의 몫 (초 부분)
+                val min = totalsec / 60    // time%100, 나눗셈의 나머지 (밀리초 부분)
+                val sec = totalsec % 60
 
-            // UI조작을 위한 메서드
-            runOnUiThread {
-                binding.signupTimerTv.visibility=View.VISIBLE
-                binding.signupTimerTv.text = "$min"+":"+"$sec"	// TextView 세팅
+                // UI조작을 위한 메서드
+                runOnUiThread {
+                    binding.signupTimerTv.visibility = View.VISIBLE
+                    binding.signupTimerTv.text = "$min" + ":" + "$sec"    // TextView 세팅
+                }
             }
         }
     }

@@ -183,7 +183,11 @@ class WritingActivity: AppCompatActivity() ,WritingActivityView {
             val sendstore = store.toString().toRequestBody("application/json".toMediaTypeOrNull())
             if (images.size == 0) {
                 Log.d("NO-PHOTO",images.toString())
-                WritingActivityService(this).tryWriting(store, images,jwt)
+                Toast.makeText(
+                    getApplicationContext(),
+                    "사진을 첨부해주세요",
+                    Toast.LENGTH_LONG)
+//                WritingActivityService(this).tryWriting(store,null,jwt)
             } else {
                 WritingActivityService(this).tryWriting(store, images,jwt)
             }
