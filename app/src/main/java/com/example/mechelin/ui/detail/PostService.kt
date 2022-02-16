@@ -17,7 +17,7 @@ interface PostService {
     @PATCH("/reviews/{userIdx}/{reviewIdx}/status")
     fun DeleteReview(
         @Path("userIdx") userIdx: Int,
-        @Path("storeIdx") storeIdx: Int
-    ):Call<PostResult>
+        @Path("reviewIdx") reviewIdx: Int
+    ):Call<deleteresponse>
 
 }
