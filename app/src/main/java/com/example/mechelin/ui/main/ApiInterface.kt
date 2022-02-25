@@ -31,4 +31,12 @@ interface ApiInterface {
         @Query("deliveryService") deliveryService: String,
         @Query("page") page: Int,
         @Query("pageSize") pageSize: Int): Call<StoreResponse>
+
+    @GET("{fullUrl}")
+    fun getHashtagStore(
+        @Path("fullUrl", encoded = true) fullUrl: String,
+        @Header("X-ACCESS-TOKEN") token: String?,
+        @Query("tagIdx") tagIdx: Int,
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int): Call<HashtagStoreResponse>
 }

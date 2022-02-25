@@ -46,6 +46,7 @@
         <activity android:name=".ui.signin.LoginActivity"/>
         <activity android:name=".ui.signin.LoginmainActivity"/>
         <activity android:name=".ui.detail.DetailActivity"/>
+        <activity android:name=".ui.main.SearchwordHashtagActivity"/>
         
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 

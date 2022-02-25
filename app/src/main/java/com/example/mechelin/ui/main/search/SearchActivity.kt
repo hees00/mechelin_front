@@ -5,20 +5,20 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mechelin.R
 
 import com.example.mechelin.databinding.ActivitySearchBinding
-import com.example.mechelin.ui.main.ApiClient
-import com.example.mechelin.ui.main.ApiInterface
-import com.example.mechelin.ui.main.getJwt
-import com.example.mechelin.ui.main.getUserIdx
+import com.example.mechelin.ui.main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.time.LocalDate
 
 
 class SearchActivity: AppCompatActivity() {
 
     lateinit var binding: ActivitySearchBinding
+    private var hashtag = Hashtag()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +37,21 @@ class SearchActivity: AppCompatActivity() {
         binding.searchMagnifierBlackIv.setOnClickListener {
             getSearchStoreResult()
             getSearchHashtagResult()
+//            saveTagIdx(this@SearchActivity, hashtag.tagIdx)
+            //Log.d("GETTAGIDX", getTagIdx(this@SearchActivity).toString())
         }
+//        binding.searchHashtagRecyclerview.setOnClickListener{
+//            changeFragment()
+//        }
 
     }
+
+//    fun changeFragment() {
+//        supportFragmentManager
+//            .beginTransaction()
+//            .replace(R.id.main_frm, SearchwordHashtagActivity::class.java)
+//            .commit()
+//    }
 
     private fun buttonChange() {
         if (binding.searchSearchingEt.length() > 1) {
@@ -93,6 +105,7 @@ class SearchActivity: AppCompatActivity() {
 
         })
     }
+
 
     private fun getSearchHashtagResult() {
 
