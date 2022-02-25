@@ -11,6 +11,7 @@ import java.io.IOException
 
 object ApiClient {
         private const val BASE_URL = "https://dev.mechelin.shop"
+    var token=""
 
     val clientBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
 
@@ -31,13 +32,19 @@ object ApiClient {
             build()
         }
 
-        class AppInterceptor : Interceptor {
-            @Throws(IOException::class)
-            override fun intercept(chain: Interceptor.Chain) : Response = with(chain) {
-                val newRequest = request().newBuilder()
-                    .addHeader("X-ACCESS-TOKEN", "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NDQzMzk4NDIsImV4cCI6MTY0NTgxMTA3MX0.mabi8DnjOp6nL2oDeMDgNcl5ZowTp0x9BIIeSmREp6Q")
-                    .build()
-                proceed(newRequest)
-            }
+    fun settoken(stoken:String){
+        token=stoken
+    }
+
+    class AppInterceptor : Interceptor {
+        @Throws(IOException::class)
+        override fun intercept(chain: Interceptor.Chain) : Response = with(chain) {
+            val newRequest = request().newBuilder()
+                .addHeader("X-ACCESS-TOKEN", token)
+                .build()
+            proceed(newRequest)
         }
     }
+
+    }
+

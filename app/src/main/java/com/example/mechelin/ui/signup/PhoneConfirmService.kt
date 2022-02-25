@@ -19,7 +19,11 @@ class PhoneConfirmService(val view: PhoneConfirmView) {
             override fun onResponse(call: Call<PhoneResult>, response: Response<PhoneResult>) {
                 Log.d("REQUEST-SUCCESS", "onresponse 들어옴")
                 Log.d("REQUEST-SUCCESS", response.toString())
-                view.onconfirmrequestSuccess(response.body() as PhoneResult)
+                when(response.code()){
+                    200->view.onconfirmrequestSuccess(response.body() as PhoneResult)
+                    else -> Log.d("REQUEST-FAIL", response.toString())
+                }
+
             }
         })
     }

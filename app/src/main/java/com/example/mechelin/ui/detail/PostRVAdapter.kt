@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.mechelin.R
+import com.example.mechelin.data.SearchStore
 import com.example.mechelin.databinding.ItemPostBinding
 
-class PostRVAdapter(private val postList: ArrayList<Review>) : RecyclerView.Adapter<PostRVAdapter.ViewHolder>(){
+class PostRVAdapter(private val postList: ArrayList<Review>,private val itemClickedListener:(Int)->Unit) : RecyclerView.Adapter<PostRVAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding: ItemPostBinding = ItemPostBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -57,6 +58,10 @@ class PostRVAdapter(private val postList: ArrayList<Review>) : RecyclerView.Adap
                 1.5 -> binding.itemPostRate.setImageResource(R.drawable.detailpage_writingpage_rating_1andhalf_xxhdpi)
                 1.0 -> binding.itemPostRate.setImageResource(R.drawable.detailpage_writingpage_rating_1_xxhdpi)
                 0.5 -> binding.itemPostRate.setImageResource(R.drawable.detailpage_writingpage_rating_half_xxhdpi)
+            }
+
+            binding.itemPostBtnDelete.setOnClickListener {
+                itemClickedListener(postResult.reviewIdx)
             }
 
         }

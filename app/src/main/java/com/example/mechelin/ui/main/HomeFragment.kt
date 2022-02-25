@@ -1,19 +1,14 @@
 package com.example.mechelin.ui.main
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.mechelin.R
 import com.example.mechelin.databinding.FragmentHomeBinding
-import com.example.mechelin.ui.detail.DetailActivity
 import com.example.mechelin.ui.main.review.HomeReviewRVAdator
 import com.example.mechelin.ui.main.review.ReviewResponse
-import com.example.mechelin.ui.mypage.MypageActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.mechelin.databinding.ActivityLoginBinding
 import com.example.mechelin.databinding.ActivityLoginMainBinding
 import com.example.mechelin.ui.savestore.WritingActivity
+import com.example.mechelin.ui.signup.SignUpTermActivity
 import com.example.mechelin.ui.signup.SignupActivity
 
 class LoginmainActivity:AppCompatActivity() {
@@ -22,7 +23,7 @@ class LoginmainActivity:AppCompatActivity() {
             startActivity(intent)
         }
         binding.loginMainSignupBtnDeactivate.setOnClickListener{
-            val intent = Intent(this, SignupActivity::class.java)
+            val intent = Intent(this, SignUpTermActivity::class.java)
             startActivity(intent)
         }
 

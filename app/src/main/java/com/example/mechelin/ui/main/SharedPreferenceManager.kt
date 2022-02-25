@@ -45,6 +45,7 @@ fun getCategoryIdx(context: Context): String {
     return spf.getString("categoryIdx", "")!!
 }
 
+
 fun saveTagIdx(context: Context, tagIdx: Int){
     val spf = context.getSharedPreferences("tagIdx", AppCompatActivity.MODE_PRIVATE)
     val editor = spf.edit()
@@ -57,4 +58,15 @@ fun getTagIdx(context: Context): Int {
     val spf = context.getSharedPreferences("tagIdx", AppCompatActivity.MODE_PRIVATE)
 
     return spf.getInt("tagIdx", 0)
+
+    
+fun logout(context: Context){
+    val spf = context.getSharedPreferences("userIdx", AppCompatActivity.MODE_PRIVATE)
+    val editor = spf.edit()
+    val spf2 = context.getSharedPreferences("jwt", AppCompatActivity.MODE_PRIVATE)
+    val editor2 = spf.edit()
+    
+    editor.remove("userIdx")
+    editor.commit()
+
 }
