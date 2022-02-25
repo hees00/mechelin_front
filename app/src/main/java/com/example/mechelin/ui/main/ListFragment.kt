@@ -57,20 +57,6 @@ class ListFragment: Fragment() {
             getStore(categoryIdx, starRatingYN, deliveryServiceYN, 1, 100)
         }
 
-//        binding.listStarrateGrayTv.setOnClickListener {
-//            binding.listStarrateGrayTv.visibility = View.GONE
-//            binding.listStarrateRedTv.visibility = View.VISIBLE
-//            binding.listStarrateEclipseGrayIv.visibility = View.GONE
-//            binding.listStarrateEclipseRedIv.visibility = View.VISIBLE
-//            starRatingYN
-//        }
-//
-//        binding.listStarrateRedTv.setOnClickListener {
-//            binding.listStarrateGrayTv.visibility = View.VISIBLE
-//            binding.listStarrateRedTv.visibility = View.GONE
-//            binding.listStarrateEclipseGrayIv.visibility = View.VISIBLE
-//            binding.listStarrateEclipseRedIv.visibility = View.GONE
-//        }
 
         binding.listDeliveryGrayTv.setOnClickListener {
             binding.listDeliveryGrayTv.visibility = View.GONE
@@ -90,8 +76,6 @@ class ListFragment: Fragment() {
             getStore(categoryIdx, starRatingYN, deliveryServiceYN, 1, 100)
         }
 
-//        val foodRVAdator = StoreRVAdaptor(storeDatas)
-//        binding.listRecyclerview.adapter = foodRVAdator
 
         return binding.root
     }
@@ -127,7 +111,8 @@ class ListFragment: Fragment() {
 
 
                     when (resp.code) {
-                        1000 -> {binding.listRecyclerview.adapter = StoreRVAdaptor(resp.result)
+                        1000 -> {
+                            binding.listRecyclerview.adapter = StoreRVAdaptor(resp.result)
                             binding.listRecyclerview.layoutManager = GridLayoutManager(context, 3)
                         }
 
