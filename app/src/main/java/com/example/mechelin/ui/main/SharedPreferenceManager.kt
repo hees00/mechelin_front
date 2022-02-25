@@ -50,7 +50,7 @@ fun logout(context: Context){
     val editor = spf.edit()
     val spf2 = context.getSharedPreferences("jwt", AppCompatActivity.MODE_PRIVATE)
     val editor2 = spf.edit()
-    
+
     editor.remove("userIdx")
     editor.commit()
 
