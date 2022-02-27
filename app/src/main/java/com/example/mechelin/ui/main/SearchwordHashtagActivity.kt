@@ -22,6 +22,7 @@ class SearchwordHashtagActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentSearchwordHashtagBinding.inflate(layoutInflater)
+        binding.searchwordHashtagTv.text = getHashtag(this@SearchwordHashtagActivity)
         setContentView(binding.root)
     }
 

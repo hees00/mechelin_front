@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mechelin.databinding.ItemHashtagSearchingBinding
 import com.example.mechelin.ui.main.SearchwordHashtagActivity
 import com.example.mechelin.ui.main.getTagIdx
+import com.example.mechelin.ui.main.saveHashtag
 import com.example.mechelin.ui.main.saveTagIdx
 
 class SearchHashtagRVAdaptor(private var hashtagList: ArrayList<Hashtag>): RecyclerView.Adapter<SearchHashtagRVAdaptor.ViewHolder>() {
@@ -32,11 +33,13 @@ class SearchHashtagRVAdaptor(private var hashtagList: ArrayList<Hashtag>): Recyc
             binding.itemHashtagSearchingReviewnumTv.text = hashtag.count.toString()
 
             val tagIdx = hashtag.tagIdx
+            val hashtag = hashtag.tagName
 
             binding.itemHashtagSearchingNameTv.setOnClickListener(object : View.OnClickListener {
                 override fun onClick(v: View) {
                     val intent = Intent(v.context, SearchwordHashtagActivity::class.java)
                     saveTagIdx(v.context, tagIdx)
+                    saveHashtag(v.context, hashtag)
                     Log.d("VIEWTAGIDX", tagIdx.toString())
                     intent.putExtra("tagIdx",tagIdx)
                     v.context.startActivity(intent)

@@ -56,9 +56,23 @@ fun saveTagIdx(context: Context, tagIdx: Int){
 
 fun getTagIdx(context: Context): Int {
     val spf = context.getSharedPreferences("tagIdx", AppCompatActivity.MODE_PRIVATE)
-
     return spf.getInt("tagIdx", 0)
 }
+
+fun saveHashtag(context: Context, hashtag: String){
+    val spf = context.getSharedPreferences("hashtag", AppCompatActivity.MODE_PRIVATE)
+    val editor = spf.edit()
+
+    editor.putString("hashtag", hashtag)
+    editor.apply()
+}
+
+fun getHashtag(context: Context): String {
+    val spf = context.getSharedPreferences("hashtag", AppCompatActivity.MODE_PRIVATE)
+
+    return spf.getString("hashtag", "")!!
+}
+
     
 fun logout(context: Context){
     val spf = context.getSharedPreferences("userIdx", AppCompatActivity.MODE_PRIVATE)
