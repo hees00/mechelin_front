@@ -17,6 +17,7 @@
         <entry key="src/main/res/layout/fragment_list.xml" value="0.4737451788005143" />
         <entry key="src/main/res/layout/fragment_searchword_hashtag.xml" value="0.328125" />
         <entry key="src/main/res/layout/item_food.xml" value="0.36463257863780874" />
+        <entry key="src/main/res/layout/item_hashtag.xml" value="0.328125" />
         <entry key="src/main/res/layout/item_hashtag_searching.xml" value="0.328125" />
         <entry key="src/main/res/layout/item_recent_review.xml" value="0.328125" />
         <entry key="src/main/res/layout/item_search_result.xml" value="0.328125" />

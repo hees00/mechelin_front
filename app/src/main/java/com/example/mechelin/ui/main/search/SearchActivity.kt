@@ -18,7 +18,6 @@ import java.time.LocalDate
 class SearchActivity: AppCompatActivity() {
 
     lateinit var binding: ActivitySearchBinding
-    private var hashtag = Hashtag()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,21 +36,10 @@ class SearchActivity: AppCompatActivity() {
         binding.searchMagnifierBlackIv.setOnClickListener {
             getSearchStoreResult()
             getSearchHashtagResult()
-//            saveTagIdx(this@SearchActivity, hashtag.tagIdx)
-            //Log.d("GETTAGIDX", getTagIdx(this@SearchActivity).toString())
         }
-//        binding.searchHashtagRecyclerview.setOnClickListener{
-//            changeFragment()
-//        }
+
 
     }
-
-//    fun changeFragment() {
-//        supportFragmentManager
-//            .beginTransaction()
-//            .replace(R.id.main_frm, SearchwordHashtagActivity::class.java)
-//            .commit()
-//    }
 
     private fun buttonChange() {
         if (binding.searchSearchingEt.length() > 1) {
