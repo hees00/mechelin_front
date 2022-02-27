@@ -30,4 +30,8 @@ class LoginmainActivity:AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+//        super.onBackPressed()
+    }
+
 }

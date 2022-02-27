@@ -20,4 +20,10 @@ interface PostService {
         @Path("reviewIdx") reviewIdx: Int
     ):Call<deleteresponse>
 
+    @PATCH("/stores/{userIdx}/{storeIdx}/status")
+    fun DeleteStore(
+        @Path("userIdx") userIdx:Int,
+        @Path("storeIdx") storeIdx:Int,
+    ):Call<deletestoreresponse>
+
 }
