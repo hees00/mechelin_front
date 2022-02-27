@@ -150,7 +150,7 @@
             android:id="@+id/writing_category_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="visible"
+            android:visibility="gone"
             android:background="@color/white"
             app:layout_constraintTop_toBottomOf="@id/writing_category_select_tb">
 
@@ -319,7 +319,7 @@
         <!--    나중에 변경-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="600dp"
             android:layout_marginBottom="20dp"
             android:background="#fcfafa"
             android:elevation="10dp"
@@ -440,7 +440,7 @@
             <EditText
                 android:id="@+id/writing_review_content_et"
                 android:layout_width="306dp"
-                android:layout_height="146dp"
+                android:layout_height="170dp"
                 android:hint="리뷰를 남겨주세요"
                 android:textSize="10sp"
                 android:maxLength="1000"

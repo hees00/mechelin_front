@@ -22,19 +22,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <TextView
-        android:id="@+id/item_post_btn_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="수정"
-        android:fontFamily="@font/scdream4"
-        android:textSize="10dp"
-        android:textColor="@color/mechelin_gray_font2"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintTop_toTopOf="@id/item_post_btn_delete"
-        app:layout_constraintBottom_toBottomOf="@id/item_post_btn_delete"
-        app:layout_constraintEnd_toStartOf="@id/item_post_btn_delete"
-        />
+<!--    <TextView-->
+<!--        android:id="@+id/item_post_btn_edit"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="수정"-->
+<!--        android:fontFamily="@font/scdream4"-->
+<!--        android:textSize="10dp"-->
+<!--        android:textColor="@color/mechelin_gray_font2"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        app:layout_constraintTop_toTopOf="@id/item_post_btn_delete"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/item_post_btn_delete"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/item_post_btn_delete"-->
+<!--        />-->
 
     <TextView
         android:id="@+id/item_post_btn_delete"
